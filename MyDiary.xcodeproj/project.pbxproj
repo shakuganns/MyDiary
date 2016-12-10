@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D28B4C321DFADFB200D10C7E /* MyDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D28B4C301DFADFB200D10C7E /* MyDiary.xcdatamodeld */; };
+		D28B4C341DFADFCD00D10C7E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D28B4C331DFADFCD00D10C7E /* Info.plist */; };
+		D28B4C361DFAE00C00D10C7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B4C351DFAE00C00D10C7E /* AppDelegate.swift */; };
+		D28B4C3C1DFAE27300D10C7E /* qingyuan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D28B4C3B1DFAE27300D10C7E /* qingyuan.ttf */; };
+		D2CF7ED31DFADCA700B620DF /* Diary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED11DFADCA700B620DF /* Diary+CoreDataClass.swift */; };
+		D2CF7ED41DFADCA700B620DF /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED21DFADCA700B620DF /* Diary+CoreDataProperties.swift */; };
+		D2CF7EDD1DFADCD500B620DF /* DiaryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED61DFADCD500B620DF /* DiaryTableView.swift */; };
+		D2CF7EDE1DFADCD500B620DF /* DiaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED71DFADCD500B620DF /* DiaryTableViewCell.swift */; };
+		D2CF7EDF1DFADCD500B620DF /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED81DFADCD500B620DF /* DiaryView.swift */; };
+		D2CF7EE01DFADCD500B620DF /* DiaryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED91DFADCD500B620DF /* DiaryViewDelegate.swift */; };
+		D2CF7EE11DFADCD500B620DF /* LookDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7EDA1DFADCD500B620DF /* LookDiaryViewController.swift */; };
+		D2CF7EE21DFADCD500B620DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7EDB1DFADCD500B620DF /* ViewController.swift */; };
+		D2CF7EE91DFADD6A00B620DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE31DFADD6A00B620DF /* Assets.xcassets */; };
+		D2CF7EEA1DFADD6A00B620DF /* CanlendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE41DFADD6A00B620DF /* CanlendarView.xib */; };
+		D2CF7EEB1DFADD6A00B620DF /* DiaryTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE51DFADD6A00B620DF /* DiaryTableView.xib */; };
+		D2CF7EEC1DFADD6A00B620DF /* DiaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE61DFADD6A00B620DF /* DiaryTableViewCell.xib */; };
+		D2CF7EED1DFADD6A00B620DF /* DiaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE71DFADD6A00B620DF /* DiaryView.xib */; };
+		D2CF7EEE1DFADD6A00B620DF /* LookDiaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE81DFADD6A00B620DF /* LookDiaryView.xib */; };
+		D2CF7EF31DFADDFF00B620DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EEF1DFADDFF00B620DF /* LaunchScreen.storyboard */; };
+		D2CF7EF41DFADDFF00B620DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EF11DFADDFF00B620DF /* Main.storyboard */; };
+		D2EC4D9C1DFBEA880005AE77 /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EC4D9B1DFBEA880005AE77 /* CustomIOSAlertView.m */; };
+		D2EC4DA01DFBF5C40005AE77 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC4D9F1DFBF5C40005AE77 /* AlertView.swift */; };
+		D2EC4DA21DFC028F0005AE77 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2EC4DA11DFC028F0005AE77 /* AlertView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D28B4C311DFADFB200D10C7E /* MyDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDiary.xcdatamodel; sourceTree = "<group>"; };
+		D28B4C331DFADFCD00D10C7E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyDiary/Info.plist; sourceTree = "<group>"; };
+		D28B4C351DFAE00C00D10C7E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MyDiary/AppDelegate.swift; sourceTree = "<group>"; };
+		D28B4C3B1DFAE27300D10C7E /* qingyuan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = qingyuan.ttf; path = MyDiary/ttf/qingyuan.ttf; sourceTree = "<group>"; };
+		D2BD2E291DF6A1BE005E18E8 /* MyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2CF7ED11DFADCA700B620DF /* Diary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Diary+CoreDataClass.swift"; path = "MyDiary/model/Diary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D2CF7ED21DFADCA700B620DF /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Diary+CoreDataProperties.swift"; path = "MyDiary/model/Diary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D2CF7ED61DFADCD500B620DF /* DiaryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryTableView.swift; path = MyDiary/DiaryTableView.swift; sourceTree = "<group>"; };
+		D2CF7ED71DFADCD500B620DF /* DiaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryTableViewCell.swift; path = MyDiary/DiaryTableViewCell.swift; sourceTree = "<group>"; };
+		D2CF7ED81DFADCD500B620DF /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryView.swift; path = MyDiary/DiaryView.swift; sourceTree = "<group>"; };
+		D2CF7ED91DFADCD500B620DF /* DiaryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryViewDelegate.swift; path = MyDiary/DiaryViewDelegate.swift; sourceTree = "<group>"; };
+		D2CF7EDA1DFADCD500B620DF /* LookDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LookDiaryViewController.swift; path = MyDiary/LookDiaryViewController.swift; sourceTree = "<group>"; };
+		D2CF7EDB1DFADCD500B620DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = MyDiary/ViewController.swift; sourceTree = "<group>"; };
+		D2CF7EE31DFADD6A00B620DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = MyDiary/Assets.xcassets; sourceTree = "<group>"; };
+		D2CF7EE41DFADD6A00B620DF /* CanlendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CanlendarView.xib; path = MyDiary/CanlendarView.xib; sourceTree = "<group>"; };
+		D2CF7EE51DFADD6A00B620DF /* DiaryTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DiaryTableView.xib; path = MyDiary/DiaryTableView.xib; sourceTree = "<group>"; };
+		D2CF7EE61DFADD6A00B620DF /* DiaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DiaryTableViewCell.xib; path = MyDiary/DiaryTableViewCell.xib; sourceTree = "<group>"; };
+		D2CF7EE71DFADD6A00B620DF /* DiaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DiaryView.xib; path = MyDiary/DiaryView.xib; sourceTree = "<group>"; };
+		D2CF7EE81DFADD6A00B620DF /* LookDiaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LookDiaryView.xib; path = MyDiary/LookDiaryView.xib; sourceTree = "<group>"; };
+		D2CF7EF01DFADDFF00B620DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MyDiary/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D2CF7EF21DFADDFF00B620DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MyDiary/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2EC4D991DFBEA870005AE77 /* MyDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDiary-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2EC4D9A1DFBEA880005AE77 /* CustomIOSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomIOSAlertView.h; path = MyDiary/AlertView/CustomIOSAlertView.h; sourceTree = "<group>"; };
+		D2EC4D9B1DFBEA880005AE77 /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomIOSAlertView.m; path = MyDiary/AlertView/CustomIOSAlertView.m; sourceTree = "<group>"; };
+		D2EC4D9F1DFBF5C40005AE77 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertView.swift; path = MyDiary/AlertView.swift; sourceTree = "<group>"; };
+		D2EC4DA11DFC028F0005AE77 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AlertView.xib; path = MyDiary/AlertView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2BD2E261DF6A1BE005E18E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D28B4C2F1DFADF6500D10C7E /* MyDiary */ = {
+			isa = PBXGroup;
+			children = (
+				D2EC4D9A1DFBEA880005AE77 /* CustomIOSAlertView.h */,
+				D2EC4D9B1DFBEA880005AE77 /* CustomIOSAlertView.m */,
+				D28B4C371DFAE01500D10C7E /* Layout */,
+				D28B4C351DFAE00C00D10C7E /* AppDelegate.swift */,
+				D2CF7EDB1DFADCD500B620DF /* ViewController.swift */,
+				D2CF7ED61DFADCD500B620DF /* DiaryTableView.swift */,
+				D2CF7ED71DFADCD500B620DF /* DiaryTableViewCell.swift */,
+				D2CF7ED81DFADCD500B620DF /* DiaryView.swift */,
+				D2CF7ED91DFADCD500B620DF /* DiaryViewDelegate.swift */,
+				D2CF7EDA1DFADCD500B620DF /* LookDiaryViewController.swift */,
+				D2EC4D9F1DFBF5C40005AE77 /* AlertView.swift */,
+				D2CF7EE31DFADD6A00B620DF /* Assets.xcassets */,
+				D28B4C331DFADFCD00D10C7E /* Info.plist */,
+				D28B4C301DFADFB200D10C7E /* MyDiary.xcdatamodeld */,
+				D2EC4D991DFBEA870005AE77 /* MyDiary-Bridging-Header.h */,
+			);
+			name = MyDiary;
+			sourceTree = "<group>";
+		};
+		D28B4C371DFAE01500D10C7E /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				D28B4C381DFAE05D00D10C7E /* Entries */,
+				D2CF7EE41DFADD6A00B620DF /* CanlendarView.xib */,
+				D2CF7EE71DFADD6A00B620DF /* DiaryView.xib */,
+				D2CF7EE81DFADD6A00B620DF /* LookDiaryView.xib */,
+				D2CF7EEF1DFADDFF00B620DF /* LaunchScreen.storyboard */,
+				D2CF7EF11DFADDFF00B620DF /* Main.storyboard */,
+				D2EC4DA11DFC028F0005AE77 /* AlertView.xib */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		D28B4C381DFAE05D00D10C7E /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF7EE51DFADD6A00B620DF /* DiaryTableView.xib */,
+				D2CF7EE61DFADD6A00B620DF /* DiaryTableViewCell.xib */,
+			);
+			name = Entries;
+			sourceTree = "<group>";
+		};
+		D2BD2E201DF6A1BD005E18E8 = {
+			isa = PBXGroup;
+			children = (
+				D28B4C3B1DFAE27300D10C7E /* qingyuan.ttf */,
+				D2CF7ED11DFADCA700B620DF /* Diary+CoreDataClass.swift */,
+				D2CF7ED21DFADCA700B620DF /* Diary+CoreDataProperties.swift */,
+				D28B4C2F1DFADF6500D10C7E /* MyDiary */,
+				D2BD2E2A1DF6A1BE005E18E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2BD2E2A1DF6A1BE005E18E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2BD2E291DF6A1BE005E18E8 /* MyDiary.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2BD2E281DF6A1BE005E18E8 /* MyDiary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2BD2E3E1DF6A1BE005E18E8 /* Build configuration list for PBXNativeTarget "MyDiary" */;
+			buildPhases = (
+				D2BD2E251DF6A1BE005E18E8 /* Sources */,
+				D2BD2E261DF6A1BE005E18E8 /* Frameworks */,
+				D2BD2E271DF6A1BE005E18E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyDiary;
+			productName = MyDairy;
+			productReference = D2BD2E291DF6A1BE005E18E8 /* MyDiary.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2BD2E211DF6A1BD005E18E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = shakugan;
+				TargetAttributes = {
+					D2BD2E281DF6A1BE005E18E8 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = SBSWHC29WG;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D2BD2E241DF6A1BD005E18E8 /* Build configuration list for PBXProject "MyDiary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D2BD2E201DF6A1BD005E18E8;
+			productRefGroup = D2BD2E2A1DF6A1BE005E18E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2BD2E281DF6A1BE005E18E8 /* MyDiary */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D2BD2E271DF6A1BE005E18E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EC4DA21DFC028F0005AE77 /* AlertView.xib in Resources */,
+				D28B4C3C1DFAE27300D10C7E /* qingyuan.ttf in Resources */,
+				D2CF7EF31DFADDFF00B620DF /* LaunchScreen.storyboard in Resources */,
+				D2CF7EF41DFADDFF00B620DF /* Main.storyboard in Resources */,
+				D28B4C341DFADFCD00D10C7E /* Info.plist in Resources */,
+				D2CF7EE91DFADD6A00B620DF /* Assets.xcassets in Resources */,
+				D2CF7EEA1DFADD6A00B620DF /* CanlendarView.xib in Resources */,
+				D2CF7EEB1DFADD6A00B620DF /* DiaryTableView.xib in Resources */,
+				D2CF7EEC1DFADD6A00B620DF /* DiaryTableViewCell.xib in Resources */,
+				D2CF7EED1DFADD6A00B620DF /* DiaryView.xib in Resources */,
+				D2CF7EEE1DFADD6A00B620DF /* LookDiaryView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2BD2E251DF6A1BE005E18E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2CF7EDD1DFADCD500B620DF /* DiaryTableView.swift in Sources */,
+				D2CF7EDE1DFADCD500B620DF /* DiaryTableViewCell.swift in Sources */,
+				D2CF7EDF1DFADCD500B620DF /* DiaryView.swift in Sources */,
+				D2CF7EE01DFADCD500B620DF /* DiaryViewDelegate.swift in Sources */,
+				D2EC4D9C1DFBEA880005AE77 /* CustomIOSAlertView.m in Sources */,
+				D2EC4DA01DFBF5C40005AE77 /* AlertView.swift in Sources */,
+				D2CF7EE11DFADCD500B620DF /* LookDiaryViewController.swift in Sources */,
+				D2CF7EE21DFADCD500B620DF /* ViewController.swift in Sources */,
+				D2CF7ED31DFADCA700B620DF /* Diary+CoreDataClass.swift in Sources */,
+				D2CF7ED41DFADCA700B620DF /* Diary+CoreDataProperties.swift in Sources */,
+				D28B4C361DFAE00C00D10C7E /* AppDelegate.swift in Sources */,
+				D28B4C321DFADFB200D10C7E /* MyDiary.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D2CF7EEF1DFADDFF00B620DF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2CF7EF01DFADDFF00B620DF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D2CF7EF11DFADDFF00B620DF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2CF7EF21DFADDFF00B620DF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D2BD2E3C1DF6A1BE005E18E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D2BD2E3D1DF6A1BE005E18E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D2BD2E3F1DF6A1BE005E18E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = SBSWHC29WG;
+				INFOPLIST_FILE = MyDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.imirai.MyDiary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDiary-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D2BD2E401DF6A1BE005E18E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = SBSWHC29WG;
+				INFOPLIST_FILE = MyDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.imirai.MyDiary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyDiary-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2BD2E241DF6A1BD005E18E8 /* Build configuration list for PBXProject "MyDiary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2BD2E3C1DF6A1BE005E18E8 /* Debug */,
+				D2BD2E3D1DF6A1BE005E18E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2BD2E3E1DF6A1BE005E18E8 /* Build configuration list for PBXNativeTarget "MyDiary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2BD2E3F1DF6A1BE005E18E8 /* Debug */,
+				D2BD2E401DF6A1BE005E18E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D28B4C301DFADFB200D10C7E /* MyDiary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D28B4C311DFADFB200D10C7E /* MyDiary.xcdatamodel */,
+			);
+			currentVersion = D28B4C311DFADFB200D10C7E /* MyDiary.xcdatamodel */;
+			name = MyDiary.xcdatamodeld;
+			path = MyDiary/MyDiary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D2BD2E211DF6A1BD005E18E8 /* Project object */;
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiaryTableView" customModule="MyDiary" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DiaryTableView" customModule="MyDiary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1JM-Ic-7OA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="610"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="feQ-aX-Gor"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="QMP-3Q-Nyp"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPh-4S-KhL">
+                    <rect key="frame" x="0.0" y="610" width="375" height="57"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6 entry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzB-IU-IKq">
+                            <rect key="frame" x="236" y="0.0" width="131" height="57"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fs-aE-yBy">
+                            <rect key="frame" x="8" y="13" width="94" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <state key="normal" title="编辑">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="lPh-4S-KhL" secondAttribute="bottom" id="1mR-Ci-0Ca"/>
+                <constraint firstAttribute="bottom" secondItem="1JM-Ic-7OA" secondAttribute="bottom" constant="57" id="6fQ-G6-bEd"/>
+                <constraint firstItem="lPh-4S-KhL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JHZ-OY-1kv"/>
+                <constraint firstItem="lPh-4S-KhL" firstAttribute="top" secondItem="1JM-Ic-7OA" secondAttribute="bottom" id="SKx-Y3-caI"/>
+                <constraint firstItem="1JM-Ic-7OA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZpA-Xg-Jda"/>
+                <constraint firstItem="1JM-Ic-7OA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="hjM-68-ksV"/>
+                <constraint firstItem="1JM-Ic-7OA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nw9-BK-CKs"/>
+                <constraint firstItem="1JM-Ic-7OA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="thx-qf-TcJ"/>
+                <constraint firstItem="lPh-4S-KhL" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="y5z-gh-4s9"/>
+            </constraints>
+            <connections>
+                <outlet property="tableView" destination="1JM-Ic-7OA" id="jnM-lp-UQx"/>
+            </connections>
+            <point key="canvasLocation" x="20.5" y="14.5"/>
+        </view>
+    </objects>
+</document>
