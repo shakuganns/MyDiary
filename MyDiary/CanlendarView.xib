@@ -1,44 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CanlendarView" customModule="MyDiary" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CanlendarView" customModule="MyDiary" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="October" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WF-nE-OVY">
-                    <rect key="frame" x="83" y="62" width="209" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26r-Hl-fPi">
-                    <rect key="frame" x="52" y="382" width="270" height="80"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBw-30-gcw">
-                    <rect key="frame" x="75" y="150" width="224" height="224"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GjH-45-PCF">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="413.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBw-30-gcw">
+                            <rect key="frame" x="75" y="95" width="224" height="224"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="224" id="HEJ-jg-iYS"/>
+                                <constraint firstAttribute="height" constant="224" id="ij2-Bu-iTe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="120"/>
+                            <color key="textColor" red="0.3294117647" green="0.53333333329999999" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WF-nE-OVY">
+                            <rect key="frame" x="83" y="69.5" width="209" height="51"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="51" id="epa-54-NUn"/>
+                                <constraint firstAttribute="width" constant="209" id="tk0-4W-naX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                            <color key="textColor" red="0.3294117647" green="0.53333333329999999" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pv-YS-7Fg" customClass="DAYCalendarView">
+                            <rect key="frame" x="0.0" y="-375" width="375" height="375"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26r-Hl-fPi">
+                            <rect key="frame" x="88" y="297" width="198" height="51"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="51" id="Kps-fK-Vfs"/>
+                                <constraint firstAttribute="width" constant="198" id="mj6-wb-7od"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" red="0.3294117647" green="0.53333333329999999" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.93999999999999995" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="0pv-YS-7Fg" firstAttribute="bottom" secondItem="GjH-45-PCF" secondAttribute="top" id="3mf-Ur-KPR"/>
+                        <constraint firstItem="4WF-nE-OVY" firstAttribute="centerX" secondItem="OBw-30-gcw" secondAttribute="centerX" id="792-NV-8j6"/>
+                        <constraint firstItem="OBw-30-gcw" firstAttribute="centerY" secondItem="GjH-45-PCF" secondAttribute="centerY" id="Qsy-tE-Q9q"/>
+                        <constraint firstItem="26r-Hl-fPi" firstAttribute="centerX" secondItem="OBw-30-gcw" secondAttribute="centerX" id="YUb-L2-0JS"/>
+                        <constraint firstItem="0pv-YS-7Fg" firstAttribute="width" secondItem="GjH-45-PCF" secondAttribute="width" id="dyI-3u-xgC"/>
+                        <constraint firstItem="0pv-YS-7Fg" firstAttribute="height" secondItem="GjH-45-PCF" secondAttribute="width" id="k5L-hu-5lX"/>
+                        <constraint firstItem="0pv-YS-7Fg" firstAttribute="centerX" secondItem="GjH-45-PCF" secondAttribute="centerX" id="mbX-Qg-cs9"/>
+                        <constraint firstItem="OBw-30-gcw" firstAttribute="centerX" secondItem="GjH-45-PCF" secondAttribute="centerX" id="npv-M6-L8V"/>
+                        <constraint firstItem="26r-Hl-fPi" firstAttribute="centerY" secondItem="OBw-30-gcw" secondAttribute="centerY" multiplier="1.56" id="nzd-ub-W7o"/>
+                        <constraint firstItem="4WF-nE-OVY" firstAttribute="centerY" secondItem="OBw-30-gcw" secondAttribute="centerY" multiplier="0.46" id="yWi-oM-ZeA"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZBF-sL-FA8">
+                    <rect key="frame" x="165" y="561.5" width="45" height="45"/>
+                    <subviews>
+                        <imageView contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="9Sh-bf-DvN">
+                            <rect key="frame" x="6" y="12" width="32" height="20"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="9Sh-bf-DvN" firstAttribute="centerX" secondItem="ZBF-sL-FA8" secondAttribute="centerX" id="6LX-jC-5oQ"/>
+                        <constraint firstItem="9Sh-bf-DvN" firstAttribute="width" secondItem="ZBF-sL-FA8" secondAttribute="width" multiplier="0.7" id="81J-JF-B7b"/>
+                        <constraint firstItem="9Sh-bf-DvN" firstAttribute="centerY" secondItem="ZBF-sL-FA8" secondAttribute="centerY" id="QUl-d1-uej"/>
+                        <constraint firstItem="9Sh-bf-DvN" firstAttribute="height" secondItem="ZBF-sL-FA8" secondAttribute="height" multiplier="0.46" id="wPz-yF-PAX"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZBF-sL-FA8" firstAttribute="height" secondItem="GjH-45-PCF" secondAttribute="width" multiplier="0.12" id="2DV-F6-cST"/>
+                <constraint firstItem="GjH-45-PCF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5du-sx-qPL"/>
+                <constraint firstItem="GjH-45-PCF" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.62" id="7AR-zc-NiS"/>
+                <constraint firstItem="GjH-45-PCF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Dpw-Rf-GPE"/>
+                <constraint firstItem="ZBF-sL-FA8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Y1h-kV-Lp1"/>
+                <constraint firstItem="ZBF-sL-FA8" firstAttribute="width" secondItem="GjH-45-PCF" secondAttribute="width" multiplier="0.12" id="bWx-K4-rsU"/>
+                <constraint firstAttribute="trailing" secondItem="GjH-45-PCF" secondAttribute="trailing" id="o0M-1T-Nfh"/>
+                <constraint firstAttribute="bottom" secondItem="ZBF-sL-FA8" secondAttribute="bottom" multiplier="1.1" id="qOH-eO-4K7"/>
+            </constraints>
+            <connections>
+                <outlet property="animBtn" destination="ZBF-sL-FA8" id="Rnn-Jq-yT8"/>
+                <outlet property="canlendarView" destination="0pv-YS-7Fg" id="7oa-GU-hVl"/>
+                <outlet property="dayLabel" destination="OBw-30-gcw" id="DUN-48-0J6"/>
+                <outlet property="monthLabel" destination="4WF-nE-OVY" id="2kc-TK-Q2s"/>
+                <outlet property="weekdayLabel" destination="26r-Hl-fPi" id="gGL-Zd-uDI"/>
+            </connections>
             <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="down_arrow" width="28" height="15"/>
+    </resources>
 </document>

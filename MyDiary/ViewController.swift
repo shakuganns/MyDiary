@@ -8,83 +8,84 @@
 
 import UIKit
 import CoreData
+import LocalAuthentication
 
 
-class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate {
+class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,DiaryTableViewDelegate {
     
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var navigationbar: UINavigationBar!
     @IBOutlet weak var titleContinier: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    var entires = DiaryTableView()
+    
+    var entires: DiaryTableView!
+    var canlendar: CanlendarView!
+    var diary: DiaryView!
+    var scrollViewInited = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.isScrollEnabled = true
-        scrollView.isPagingEnabled = true
         scrollView.delegate = self
         entires = Bundle.main.loadNibNamed("DiaryTableView", owner: nil, options: nil)?.first as! DiaryTableView
-        entires.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-        let canlendar = Bundle.main.loadNibNamed("CanlendarView", owner: nil, options: nil)?.first as! UIView
-        canlendar.frame = CGRect(x: scrollView.frame.width, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-        let diary = Bundle.main.loadNibNamed("DiaryView", owner: nil, options: nil)?.first as! DiaryView
-        diary.frame = CGRect(x: scrollView.frame.width*2, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        canlendar = Bundle.main.loadNibNamed("CanlendarView", owner: nil, options: nil)?.first as! CanlendarView
+        diary = Bundle.main.loadNibNamed("DiaryView", owner: nil, options: nil)?.first as! DiaryView
         diary.initView()
         diary.delegate = self
-        scrollView.contentSize = CGSize(width: scrollView.frame.width*3, height: scrollView.frame.height)
+        entires.delegate = self
+        canlendar.initView()
+        
+        entires.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        canlendar.frame = CGRect(x: self.view.frame.width, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        diary.frame = CGRect(x: self.view.frame.width*2, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        scrollView.contentSize = CGSize(width: self.view.frame.width*3, height: 0)
         scrollView.addSubview(entires)
         scrollView.addSubview(canlendar)
         scrollView.addSubview(diary)
         
         entires.loadDiary()
+        entires.initView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         segment.addTarget(self, action: #selector(onSegmentValueChanged), for: UIControlEvents.valueChanged)
-//        let addBtn = diary.viewWithTag(100) as! UIButton
-//        addBtn.addTarget(self, action: #selector(click(button:)), for: UIControlEvents.touchDown)
+        
+        if Setting.useTouchIDCheck {
+            entires.tableView.isHidden = true
+            let authenticationContext = LAContext()
+            var error: NSError?
+            
+            let isTouchIdAvailable = authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,error: &error)
+            
+            if isTouchIdAvailable {
+                print("恭喜，Touch ID可以使用！")
+                //步骤2：获取指纹验证结果
+                authenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "需要验证您的指纹来确认您的身份信息", reply: {
+                    (success, error) -> Void in
+                    if success {
+                        self.entires.tableView.isHidden = false
+                        print("恭喜，您通过了Touch ID指纹验证！")
+                    } else {
+                        print("抱歉，您未能通过Touch ID指纹验证！\n\(error)")
+                    }
+                })
+            } else {
+                print("抱歉，Touch ID不可以使用！\n\(error)")
+            }
+        }
     }
     
-//    func click(button : UIButton) -> Void {
-//        let calendar: Calendar = Calendar(identifier: .gregorian)
-//        var comps: DateComponents = DateComponents()
-//        comps = calendar.dateComponents([.year,.month,.day, .weekday, .hour, .minute,.second], from: Date())
-//        var context = NSManagedObjectContext()
-//        if #available(iOS 10.0, *) {
-//            context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//            print("iOS 10")
-//        } else {
-//            // Fallback on earlier versions
-//            let app = UIApplication.shared.delegate as! AppDelegate
-//            context = app.managedObjectContext
-//            print("iOS 9")
-//        }
-//        let diary = NSEntityDescription.insertNewObject(forEntityName: "Diary",into: context) as! Diary
-//        diary.date = NSDate()
-//        diary.text = "151561561564165456"
-//        diary.mood = "good"
-//        diary.title = "No Title"
-//        diary.weather = "good"
-//        diary.week = Int16(comps.weekday!) - 1
-//        let minutes = comps.minute!<9 ? "0\(comps.minute!)" : "\(comps.minute!)"
-//        diary.time = "\(comps.hour!):\(minutes)"
-//        do {
-//            try context.save()
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//        entires.addDiaryToTable(diary: diary)
-//        
-//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        changeNavigationFrame()
+        if !scrollViewInited {
+            print("initScrollView")
+            changeNavigationFrame()
+            //第三页大小适配scrollview必须在这里才有效果
+            diary.frame = CGRect(x: self.view.frame.width*2, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+            canlendar.initViewSize()
+            scrollViewInited = true
+        }
     }
-
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.width
@@ -93,19 +94,33 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate {
         self.view.endEditing(true)
     }
     
-    //当应用被激活
-    func applicationDidBecomeActive() {
-        changeNavigationFrame()
-    }
-    
     func changeNavigationFrame() {
-        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationbar.frame = CGRect(x: 0, y: 0, width: self.navigationbar.frame.width, height: self.titleContinier.frame.height - 1)
     }
     
-    //diaryView 回调
+    //diaryView回调 成功添加日记后才会调用
     func onAddClick(button: UIButton,diary: Diary) {
-        entires.addDiaryToTable(diary: diary)
+        //是否需要添加section的标记
+        let isAddSection = entires.addDiaryToTable(diary: diary)
+        let index = 0
+        let pageWidth = Int(scrollView.frame.width)
+        scrollView.setContentOffset(CGPoint.init(x: pageWidth * index, y: 0), animated: true)
+        let indexPath = IndexPath(row: 0, section: 0)
+        if isAddSection {
+            entires.tableView.insertSections(IndexSet.init(integer: indexPath.section), with: UITableViewRowAnimation.fade)
+        } else {
+            entires.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        }
+    }
+    
+    //entries 的回调
+    func onMoreClick() {
+        let mVC = MoreViewController()
+        mVC.count[0] = "0"
+        mVC.count[1] = "\(entires.diaryCount)"
+        mVC.count[2] = "0"
+        self.navigationController?.pushViewController(mVC, animated: true)
     }
     
     func onSegmentValueChanged() {
@@ -114,11 +129,5 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate {
         scrollView.setContentOffset(CGPoint.init(x: pageWidth * index, y: 0), animated: true)
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let vc = LookDiaryViewController()
-////        self.present(vc, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
-
 }
 

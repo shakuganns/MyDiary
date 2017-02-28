@@ -16,12 +16,11 @@ extension Diary {
         return NSFetchRequest<Diary>(entityName: "Diary");
     }
 
-    @NSManaged public var day: Int16
     @NSManaged public var mood: String?
     @NSManaged public var text: String?
-    @NSManaged public var time: String?
     @NSManaged public var title: String?
     @NSManaged public var weather: String?
-    @NSManaged public var week: Int16
+    @NSManaged public var location: String?
+    @NSManaged public var date: Date
 
 }

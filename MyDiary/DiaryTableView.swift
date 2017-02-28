@@ -11,21 +11,67 @@ import CoreData
 
 class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
     
-    var diaryArray = Array<Diary>()
+    var diaryArray = Array<Array<Diary>>()
+    var diaryCount = Int()
+    var delegate: DiaryTableViewDelegate?
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var entryNumLabel: UILabel!
+    @IBOutlet weak var moreBtn: UIImageView!
+    
+    func initView() -> Void {
+        entryNumLabel.text = "\(diaryCount) entry"
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(pushTo))
+        moreBtn.addGestureRecognizer(singleTap)
+    }
+    
+    func pushTo() -> Void {
+        if delegate != nil {
+            delegate?.onMoreClick()
+        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 92
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
+        if header == nil {
+            header = Bundle.main.loadNibNamed("DiaryTableViewSectionHeader", owner: nil, options: nil)?.first as? UITableViewHeaderFooterView
+            header?.contentView.backgroundColor = UIColor.clear
+            print("loadnib - tableviewHeader")
+        }
+        let label = header?.viewWithTag(1) as! UILabel
+        let comps = DateUtil.formatDate(date: diaryArray[section][0].date)
+        let todayComps = DateUtil.formatDate(date: Date())
+        if comps.year! != todayComps.year! {
+            label.text = "\(comps.year!).\(comps.month!)"
+        } else {
+            label.text =  "\(comps.month!)"
+        }
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return diaryArray.count
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return diaryArray[section].count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let diary = diaryArray[indexPath.section][indexPath.row]
         var cell = tableView.dequeueReusableCell(withIdentifier: "diaryCell")
         if cell == nil {
             cell = Bundle.main.loadNibNamed("DiaryTableViewCell", owner: nil, options: nil)?.first as! DiaryTableViewCell
+//            cell?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: (cell?.frame.height)!)
         }
         let view = cell?.viewWithTag(100)
         view?.layer.masksToBounds = true
@@ -37,47 +83,39 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
         let text = cell?.viewWithTag(5) as! UILabel
         let weather = cell?.viewWithTag(6) as! UILabel
         let mood = cell?.viewWithTag(7) as! UILabel
-        date.text = "\(diaryArray[diaryArray.count - indexPath.row - 1].day)"
-        
-        switch diaryArray[diaryArray.count - indexPath.row - 1].week {
-        case 1:
-            week.text = "Mon."
-        case 2:
-            week.text = "Tue."
-        case 3:
-            week.text = "Wed."
-        case 4:
-            week.text = "Thu."
-        case 5:
-            week.text = "Fri."
-        case 6:
-            week.text = "Sat."
-        case 7:
-            week.text = "Sun."
-        default:
-            break
-        }
-        
-        time.text = diaryArray[diaryArray.count - indexPath.row - 1].time
-        title.text = diaryArray[diaryArray.count - indexPath.row - 1].title
-        text.text = diaryArray[diaryArray.count - indexPath.row - 1].text
-        weather.text = diaryArray[diaryArray.count - indexPath.row - 1].weather
-        mood.text = diaryArray[diaryArray.count - indexPath.row - 1].mood
+        let comps = DateUtil.formatDate(date: diary.date)
+        date.text = "\(comps.day!)"
+        week.text = DateUtil.weekdayInt2String(day: comps.weekday!,isAbbreviated: true)
+        time.text = DateUtil.formatHourMinute(hour: comps.hour!, minute: comps.minute!)
+        title.text = diary.title
+        text.text = diary.text
+        weather.text = diary.weather
+        mood.text = diary.mood
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let diary = diaryArray[indexPath.section][indexPath.row]
+        let comps = DateUtil.formatDate(date: diary.date)
         let alert = CustomIOSAlertView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         let customView = Bundle.main.loadNibNamed("AlertView", owner: nil, options: nil)?.first as! AlertView
-        customView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width*0.94, height: 600)
+        customView.initTapGesture(target: alert)
+        customView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width*0.94, height: UIScreen.main.bounds.height>600 ? 600 : UIScreen.main.bounds.height*0.9)
+        customView.setTime(month: comps.month!, day: comps.day!, hour: comps.hour!,minute: comps.minute!, weekday
+            : comps.weekday!)
+        customView.setTitleText(title: diary.title!,text: diary.text!)
+        customView.setWeather(weather: diary.weather!)
+        customView.setLocation(location: diary.location == nil ? "No location" : diary.location!)
+        customView.lookingDiarySection = indexPath.section
+        customView.lookingDiaryRow = indexPath.row
+        customView.diaryTableView = self
         alert.containerView = customView
         alert.show()
-//        alert.dialogView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
-//        alert.containerView.frame = CGRect(x: (alert.frame.width-100)/2, y: (alert.frame.height-400)/2, width: alert.frame.width-100, height: 400)
-//        alert.containerView.addSubview(Bundle.main.loadNibNamed("AlertView", owner: nil, options: nil)?.first as! AlertView)
+        customView.addCons()
+        //dialogView在调用show()之后才初始化
         alert.dialogView.layer.borderWidth = 0
-        alert.containerView.layer.cornerRadius = 6
-//        alert.dialogView.backgroundColor = UIColor.clear
+        alert.dialogView.clipsToBounds = true
+        alert.dialogView.layer.cornerRadius = 24
     }
     
     public func loadDiary() -> Void {
@@ -107,17 +145,76 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
         } catch {
             print(error.localizedDescription)
         }
+        
         if fetchedObjects.count == 0 {
             return
         }
+        let object = fetchedObjects as! Array<Diary>
+        var comps = DateUtil.formatDate(date: object[fetchedObjects.count-1].date)
+        var yearMonth = "\(comps.year!)\(comps.month!)"
+        var arraySection = 0
+        diaryCount = fetchedObjects.count
+        var arrayBeginIndex = fetchedObjects.count-1
+        var arrayEndIndex = arrayBeginIndex
         //遍历查询的结果
-        for index in 0...fetchedObjects.count-1 {
-            diaryArray.append(fetchedObjects[index] as! Diary)
+        for index in (0...fetchedObjects.count-1).reversed() {
+            comps = DateUtil.formatDate(date: object[index].date)
+            let yearMonthTemp = "\(comps.year!)\(comps.month!)"
+            arrayEndIndex = index
+            if yearMonth != yearMonthTemp {
+                var array = Array<Diary>()
+                for i in (arrayEndIndex...arrayBeginIndex).reversed() {
+                    array.append(object[i])
+                }
+                diaryArray.append(array)
+                arraySection += 1
+                yearMonth = yearMonthTemp
+                arrayBeginIndex = arrayEndIndex - 1
+            } else if index == fetchedObjects.count-1 {
+                var array = Array<Diary>()
+                for i in (0...arrayBeginIndex).reversed() {
+                    array.append(object[i])
+                }
+                diaryArray.append(array)
+            }
         }
+        print("diaryCount:\(diaryCount)")
+        print("section:\(diaryArray.count)")
+    }
+
+    
+    public func addDiaryToTable(diary:Diary) -> Bool {
+        var isAddSection = false
+        if diaryArray.count == 0 {
+            var array = Array<Diary>()
+            array.append(diary)
+            diaryArray.insert(array, at: 0)
+            isAddSection = true
+        } else {
+            let firstCellComps = DateUtil.formatDate(date: diaryArray[0][0].date)
+            let comps = DateUtil.formatDate(date: diary.date)
+            if (firstCellComps.month! == comps.month!)&&(firstCellComps.year! == comps.year!) {
+                diaryArray[0].insert(diary, at: 0)
+                isAddSection = false
+            } else {
+                var array = Array<Diary>()
+                array.append(diary)
+                diaryArray.insert(array, at: 0)
+                isAddSection = true
+            }
+        }
+        updateCountLabel(isPlus: true)
+//        tableView.reloadData()
+        return isAddSection
     }
     
-    public func addDiaryToTable(diary:Diary) -> Void {
-        diaryArray.append(diary)
-        tableView.reloadData()
+    func updateCountLabel(isPlus:Bool) -> Void {
+        if isPlus {
+            diaryCount += 1
+        } else {
+            diaryCount -= 1
+        }
+        entryNumLabel.text = "\(diaryCount) entry"
     }
+    
 }

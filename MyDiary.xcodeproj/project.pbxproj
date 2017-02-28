@@ -11,25 +11,37 @@
 		D28B4C341DFADFCD00D10C7E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D28B4C331DFADFCD00D10C7E /* Info.plist */; };
 		D28B4C361DFAE00C00D10C7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B4C351DFAE00C00D10C7E /* AppDelegate.swift */; };
 		D28B4C3C1DFAE27300D10C7E /* qingyuan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D28B4C3B1DFAE27300D10C7E /* qingyuan.ttf */; };
+		D2A82CB31DFFF1A4006E8E25 /* DiaryTableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2A82CB21DFFF1A4006E8E25 /* DiaryTableViewSectionHeader.xib */; };
+		D2B540EB1E03A63400F1FCDA /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B540EA1E03A63400F1FCDA /* Setting.swift */; };
+		D2B540ED1E03D91800F1FCDA /* DiaryTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B540EC1E03D91800F1FCDA /* DiaryTableViewDelegate.swift */; };
+		D2B540F11E03DAF200F1FCDA /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B540EF1E03DAF200F1FCDA /* MoreViewController.swift */; };
+		D2B540F21E03DAF200F1FCDA /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B540F01E03DAF200F1FCDA /* MoreViewController.xib */; };
+		D2B540F41E03E09400F1FCDA /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B540F31E03E09400F1FCDA /* MyNavigationController.swift */; };
+		D2B540F61E03F3CB00F1FCDA /* MoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B540F51E03F3CB00F1FCDA /* MoreTableViewCell.xib */; };
+		D2C5F6CE1E02E35500E591E7 /* DAYCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5F6CD1E02E35500E591E7 /* DAYCalendarView.m */; };
+		D2C5F6D71E02E41700E591E7 /* DAYComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5F6D01E02E41700E591E7 /* DAYComponentView.m */; };
+		D2C5F6D81E02E41700E591E7 /* DAYIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5F6D21E02E41700E591E7 /* DAYIndicatorView.m */; };
+		D2C5F6D91E02E41700E591E7 /* DAYNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5F6D41E02E41700E591E7 /* DAYNavigationBar.m */; };
+		D2C5F6DA1E02E41700E591E7 /* DAYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5F6D61E02E41700E591E7 /* DAYUtils.m */; };
+		D2CBE4781DFEDACA00719B85 /* CanlendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CBE4771DFEDACA00719B85 /* CanlendarView.swift */; };
 		D2CF7ED31DFADCA700B620DF /* Diary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED11DFADCA700B620DF /* Diary+CoreDataClass.swift */; };
 		D2CF7ED41DFADCA700B620DF /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED21DFADCA700B620DF /* Diary+CoreDataProperties.swift */; };
 		D2CF7EDD1DFADCD500B620DF /* DiaryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED61DFADCD500B620DF /* DiaryTableView.swift */; };
 		D2CF7EDE1DFADCD500B620DF /* DiaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED71DFADCD500B620DF /* DiaryTableViewCell.swift */; };
 		D2CF7EDF1DFADCD500B620DF /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED81DFADCD500B620DF /* DiaryView.swift */; };
 		D2CF7EE01DFADCD500B620DF /* DiaryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7ED91DFADCD500B620DF /* DiaryViewDelegate.swift */; };
-		D2CF7EE11DFADCD500B620DF /* LookDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7EDA1DFADCD500B620DF /* LookDiaryViewController.swift */; };
 		D2CF7EE21DFADCD500B620DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF7EDB1DFADCD500B620DF /* ViewController.swift */; };
 		D2CF7EE91DFADD6A00B620DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE31DFADD6A00B620DF /* Assets.xcassets */; };
 		D2CF7EEA1DFADD6A00B620DF /* CanlendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE41DFADD6A00B620DF /* CanlendarView.xib */; };
 		D2CF7EEB1DFADD6A00B620DF /* DiaryTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE51DFADD6A00B620DF /* DiaryTableView.xib */; };
 		D2CF7EEC1DFADD6A00B620DF /* DiaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE61DFADD6A00B620DF /* DiaryTableViewCell.xib */; };
 		D2CF7EED1DFADD6A00B620DF /* DiaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE71DFADD6A00B620DF /* DiaryView.xib */; };
-		D2CF7EEE1DFADD6A00B620DF /* LookDiaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EE81DFADD6A00B620DF /* LookDiaryView.xib */; };
 		D2CF7EF31DFADDFF00B620DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EEF1DFADDFF00B620DF /* LaunchScreen.storyboard */; };
 		D2CF7EF41DFADDFF00B620DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CF7EF11DFADDFF00B620DF /* Main.storyboard */; };
 		D2EC4D9C1DFBEA880005AE77 /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EC4D9B1DFBEA880005AE77 /* CustomIOSAlertView.m */; };
 		D2EC4DA01DFBF5C40005AE77 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC4D9F1DFBF5C40005AE77 /* AlertView.swift */; };
 		D2EC4DA21DFC028F0005AE77 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2EC4DA11DFC028F0005AE77 /* AlertView.xib */; };
+		D2EC4DA71DFC5ECE0005AE77 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC4DA61DFC5ECE0005AE77 /* DateUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,21 +49,38 @@
 		D28B4C331DFADFCD00D10C7E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyDiary/Info.plist; sourceTree = "<group>"; };
 		D28B4C351DFAE00C00D10C7E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MyDiary/AppDelegate.swift; sourceTree = "<group>"; };
 		D28B4C3B1DFAE27300D10C7E /* qingyuan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = qingyuan.ttf; path = MyDiary/ttf/qingyuan.ttf; sourceTree = "<group>"; };
+		D2A82CB21DFFF1A4006E8E25 /* DiaryTableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DiaryTableViewSectionHeader.xib; path = MyDiary/DiaryTableViewSectionHeader.xib; sourceTree = "<group>"; };
+		D2B540EA1E03A63400F1FCDA /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = MyDiary/Util/Setting.swift; sourceTree = "<group>"; };
+		D2B540EC1E03D91800F1FCDA /* DiaryTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryTableViewDelegate.swift; path = MyDiary/DiaryTableViewDelegate.swift; sourceTree = "<group>"; };
+		D2B540EF1E03DAF200F1FCDA /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoreViewController.swift; path = MyDiary/MoreViewController.swift; sourceTree = "<group>"; };
+		D2B540F01E03DAF200F1FCDA /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MoreViewController.xib; path = MyDiary/MoreViewController.xib; sourceTree = "<group>"; };
+		D2B540F31E03E09400F1FCDA /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyNavigationController.swift; path = MyDiary/MyNavigationController.swift; sourceTree = "<group>"; };
+		D2B540F51E03F3CB00F1FCDA /* MoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MoreTableViewCell.xib; path = MyDiary/MoreTableViewCell.xib; sourceTree = "<group>"; };
 		D2BD2E291DF6A1BE005E18E8 /* MyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C5F6CC1E02E35500E591E7 /* DAYCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAYCalendarView.h; path = MyDiary/CanlendarView/DAYCalendarView.h; sourceTree = "<group>"; };
+		D2C5F6CD1E02E35500E591E7 /* DAYCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAYCalendarView.m; path = MyDiary/CanlendarView/DAYCalendarView.m; sourceTree = "<group>"; };
+		D2C5F6CF1E02E41700E591E7 /* DAYComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAYComponentView.h; path = MyDiary/CanlendarView/Internal/DAYComponentView.h; sourceTree = "<group>"; };
+		D2C5F6D01E02E41700E591E7 /* DAYComponentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAYComponentView.m; path = MyDiary/CanlendarView/Internal/DAYComponentView.m; sourceTree = "<group>"; };
+		D2C5F6D11E02E41700E591E7 /* DAYIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAYIndicatorView.h; path = MyDiary/CanlendarView/Internal/DAYIndicatorView.h; sourceTree = "<group>"; };
+		D2C5F6D21E02E41700E591E7 /* DAYIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAYIndicatorView.m; path = MyDiary/CanlendarView/Internal/DAYIndicatorView.m; sourceTree = "<group>"; };
+		D2C5F6D31E02E41700E591E7 /* DAYNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAYNavigationBar.h; path = MyDiary/CanlendarView/Internal/DAYNavigationBar.h; sourceTree = "<group>"; };
+		D2C5F6D41E02E41700E591E7 /* DAYNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAYNavigationBar.m; path = MyDiary/CanlendarView/Internal/DAYNavigationBar.m; sourceTree = "<group>"; };
+		D2C5F6D51E02E41700E591E7 /* DAYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAYUtils.h; path = MyDiary/CanlendarView/Internal/DAYUtils.h; sourceTree = "<group>"; };
+		D2C5F6D61E02E41700E591E7 /* DAYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAYUtils.m; path = MyDiary/CanlendarView/Internal/DAYUtils.m; sourceTree = "<group>"; };
+		D2C5F6DC1E02E45F00E591E7 /* Daysquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Daysquare.h; path = MyDiary/CanlendarView/Daysquare.h; sourceTree = "<group>"; };
+		D2CBE4771DFEDACA00719B85 /* CanlendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CanlendarView.swift; path = MyDiary/CanlendarView.swift; sourceTree = "<group>"; };
 		D2CF7ED11DFADCA700B620DF /* Diary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Diary+CoreDataClass.swift"; path = "MyDiary/model/Diary+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D2CF7ED21DFADCA700B620DF /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Diary+CoreDataProperties.swift"; path = "MyDiary/model/Diary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D2CF7ED61DFADCD500B620DF /* DiaryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryTableView.swift; path = MyDiary/DiaryTableView.swift; sourceTree = "<group>"; };
 		D2CF7ED71DFADCD500B620DF /* DiaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryTableViewCell.swift; path = MyDiary/DiaryTableViewCell.swift; sourceTree = "<group>"; };
 		D2CF7ED81DFADCD500B620DF /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryView.swift; path = MyDiary/DiaryView.swift; sourceTree = "<group>"; };
 		D2CF7ED91DFADCD500B620DF /* DiaryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiaryViewDelegate.swift; path = MyDiary/DiaryViewDelegate.swift; sourceTree = "<group>"; };
-		D2CF7EDA1DFADCD500B620DF /* LookDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LookDiaryViewController.swift; path = MyDiary/LookDiaryViewController.swift; sourceTree = "<group>"; };
 		D2CF7EDB1DFADCD500B620DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = MyDiary/ViewController.swift; sourceTree = "<group>"; };
 		D2CF7EE31DFADD6A00B620DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = MyDiary/Assets.xcassets; sourceTree = "<group>"; };
 		D2CF7EE41DFADD6A00B620DF /* CanlendarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CanlendarView.xib; path = MyDiary/CanlendarView.xib; sourceTree = "<group>"; };
 		D2CF7EE51DFADD6A00B620DF /* DiaryTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DiaryTableView.xib; path = MyDiary/DiaryTableView.xib; sourceTree = "<group>"; };
 		D2CF7EE61DFADD6A00B620DF /* DiaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DiaryTableViewCell.xib; path = MyDiary/DiaryTableViewCell.xib; sourceTree = "<group>"; };
 		D2CF7EE71DFADD6A00B620DF /* DiaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DiaryView.xib; path = MyDiary/DiaryView.xib; sourceTree = "<group>"; };
-		D2CF7EE81DFADD6A00B620DF /* LookDiaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LookDiaryView.xib; path = MyDiary/LookDiaryView.xib; sourceTree = "<group>"; };
 		D2CF7EF01DFADDFF00B620DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MyDiary/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2CF7EF21DFADDFF00B620DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MyDiary/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2EC4D991DFBEA870005AE77 /* MyDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDiary-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -59,6 +88,7 @@
 		D2EC4D9B1DFBEA880005AE77 /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomIOSAlertView.m; path = MyDiary/AlertView/CustomIOSAlertView.m; sourceTree = "<group>"; };
 		D2EC4D9F1DFBF5C40005AE77 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertView.swift; path = MyDiary/AlertView.swift; sourceTree = "<group>"; };
 		D2EC4DA11DFC028F0005AE77 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AlertView.xib; path = MyDiary/AlertView.xib; sourceTree = "<group>"; };
+		D2EC4DA61DFC5ECE0005AE77 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtil.swift; path = MyDiary/Util/DateUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,16 +105,18 @@
 		D28B4C2F1DFADF6500D10C7E /* MyDiary */ = {
 			isa = PBXGroup;
 			children = (
-				D2EC4D9A1DFBEA880005AE77 /* CustomIOSAlertView.h */,
-				D2EC4D9B1DFBEA880005AE77 /* CustomIOSAlertView.m */,
+				D2B540EE1E03D92C00F1FCDA /* Delegate */,
+				D2C5F6DB1E02E43100E591E7 /* View */,
+				D2EC4DA31DFC5D9F0005AE77 /* Util */,
 				D28B4C371DFAE01500D10C7E /* Layout */,
 				D28B4C351DFAE00C00D10C7E /* AppDelegate.swift */,
+				D2B540F31E03E09400F1FCDA /* MyNavigationController.swift */,
 				D2CF7EDB1DFADCD500B620DF /* ViewController.swift */,
+				D2B540EF1E03DAF200F1FCDA /* MoreViewController.swift */,
 				D2CF7ED61DFADCD500B620DF /* DiaryTableView.swift */,
 				D2CF7ED71DFADCD500B620DF /* DiaryTableViewCell.swift */,
+				D2CBE4771DFEDACA00719B85 /* CanlendarView.swift */,
 				D2CF7ED81DFADCD500B620DF /* DiaryView.swift */,
-				D2CF7ED91DFADCD500B620DF /* DiaryViewDelegate.swift */,
-				D2CF7EDA1DFADCD500B620DF /* LookDiaryViewController.swift */,
 				D2EC4D9F1DFBF5C40005AE77 /* AlertView.swift */,
 				D2CF7EE31DFADD6A00B620DF /* Assets.xcassets */,
 				D28B4C331DFADFCD00D10C7E /* Info.plist */,
@@ -97,10 +129,11 @@
 		D28B4C371DFAE01500D10C7E /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				D2B540F01E03DAF200F1FCDA /* MoreViewController.xib */,
+				D2B540F51E03F3CB00F1FCDA /* MoreTableViewCell.xib */,
 				D28B4C381DFAE05D00D10C7E /* Entries */,
 				D2CF7EE41DFADD6A00B620DF /* CanlendarView.xib */,
 				D2CF7EE71DFADD6A00B620DF /* DiaryView.xib */,
-				D2CF7EE81DFADD6A00B620DF /* LookDiaryView.xib */,
 				D2CF7EEF1DFADDFF00B620DF /* LaunchScreen.storyboard */,
 				D2CF7EF11DFADDFF00B620DF /* Main.storyboard */,
 				D2EC4DA11DFC028F0005AE77 /* AlertView.xib */,
@@ -113,8 +146,18 @@
 			children = (
 				D2CF7EE51DFADD6A00B620DF /* DiaryTableView.xib */,
 				D2CF7EE61DFADD6A00B620DF /* DiaryTableViewCell.xib */,
+				D2A82CB21DFFF1A4006E8E25 /* DiaryTableViewSectionHeader.xib */,
 			);
 			name = Entries;
+			sourceTree = "<group>";
+		};
+		D2B540EE1E03D92C00F1FCDA /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D2CF7ED91DFADCD500B620DF /* DiaryViewDelegate.swift */,
+				D2B540EC1E03D91800F1FCDA /* DiaryTableViewDelegate.swift */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 		D2BD2E201DF6A1BD005E18E8 = {
@@ -134,6 +177,35 @@
 				D2BD2E291DF6A1BE005E18E8 /* MyDiary.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D2C5F6DB1E02E43100E591E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D2EC4D9A1DFBEA880005AE77 /* CustomIOSAlertView.h */,
+				D2EC4D9B1DFBEA880005AE77 /* CustomIOSAlertView.m */,
+				D2C5F6DC1E02E45F00E591E7 /* Daysquare.h */,
+				D2C5F6CF1E02E41700E591E7 /* DAYComponentView.h */,
+				D2C5F6D01E02E41700E591E7 /* DAYComponentView.m */,
+				D2C5F6D11E02E41700E591E7 /* DAYIndicatorView.h */,
+				D2C5F6D21E02E41700E591E7 /* DAYIndicatorView.m */,
+				D2C5F6D31E02E41700E591E7 /* DAYNavigationBar.h */,
+				D2C5F6D41E02E41700E591E7 /* DAYNavigationBar.m */,
+				D2C5F6D51E02E41700E591E7 /* DAYUtils.h */,
+				D2C5F6D61E02E41700E591E7 /* DAYUtils.m */,
+				D2C5F6CC1E02E35500E591E7 /* DAYCalendarView.h */,
+				D2C5F6CD1E02E35500E591E7 /* DAYCalendarView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D2EC4DA31DFC5D9F0005AE77 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D2EC4DA61DFC5ECE0005AE77 /* DateUtil.swift */,
+				D2B540EA1E03A63400F1FCDA /* Setting.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,16 +270,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2EC4DA21DFC028F0005AE77 /* AlertView.xib in Resources */,
+				D2B540F21E03DAF200F1FCDA /* MoreViewController.xib in Resources */,
 				D28B4C3C1DFAE27300D10C7E /* qingyuan.ttf in Resources */,
 				D2CF7EF31DFADDFF00B620DF /* LaunchScreen.storyboard in Resources */,
 				D2CF7EF41DFADDFF00B620DF /* Main.storyboard in Resources */,
 				D28B4C341DFADFCD00D10C7E /* Info.plist in Resources */,
 				D2CF7EE91DFADD6A00B620DF /* Assets.xcassets in Resources */,
+				D2B540F61E03F3CB00F1FCDA /* MoreTableViewCell.xib in Resources */,
+				D2A82CB31DFFF1A4006E8E25 /* DiaryTableViewSectionHeader.xib in Resources */,
 				D2CF7EEA1DFADD6A00B620DF /* CanlendarView.xib in Resources */,
 				D2CF7EEB1DFADD6A00B620DF /* DiaryTableView.xib in Resources */,
 				D2CF7EEC1DFADD6A00B620DF /* DiaryTableViewCell.xib in Resources */,
 				D2CF7EED1DFADD6A00B620DF /* DiaryView.xib in Resources */,
-				D2CF7EEE1DFADD6A00B620DF /* LookDiaryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,16 +292,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B540F11E03DAF200F1FCDA /* MoreViewController.swift in Sources */,
+				D2C5F6D81E02E41700E591E7 /* DAYIndicatorView.m in Sources */,
 				D2CF7EDD1DFADCD500B620DF /* DiaryTableView.swift in Sources */,
 				D2CF7EDE1DFADCD500B620DF /* DiaryTableViewCell.swift in Sources */,
 				D2CF7EDF1DFADCD500B620DF /* DiaryView.swift in Sources */,
 				D2CF7EE01DFADCD500B620DF /* DiaryViewDelegate.swift in Sources */,
 				D2EC4D9C1DFBEA880005AE77 /* CustomIOSAlertView.m in Sources */,
 				D2EC4DA01DFBF5C40005AE77 /* AlertView.swift in Sources */,
-				D2CF7EE11DFADCD500B620DF /* LookDiaryViewController.swift in Sources */,
+				D2C5F6D91E02E41700E591E7 /* DAYNavigationBar.m in Sources */,
 				D2CF7EE21DFADCD500B620DF /* ViewController.swift in Sources */,
+				D2B540EB1E03A63400F1FCDA /* Setting.swift in Sources */,
+				D2B540F41E03E09400F1FCDA /* MyNavigationController.swift in Sources */,
 				D2CF7ED31DFADCA700B620DF /* Diary+CoreDataClass.swift in Sources */,
+				D2C5F6D71E02E41700E591E7 /* DAYComponentView.m in Sources */,
+				D2C5F6CE1E02E35500E591E7 /* DAYCalendarView.m in Sources */,
+				D2CBE4781DFEDACA00719B85 /* CanlendarView.swift in Sources */,
+				D2C5F6DA1E02E41700E591E7 /* DAYUtils.m in Sources */,
 				D2CF7ED41DFADCA700B620DF /* Diary+CoreDataProperties.swift in Sources */,
+				D2B540ED1E03D91800F1FCDA /* DiaryTableViewDelegate.swift in Sources */,
+				D2EC4DA71DFC5ECE0005AE77 /* DateUtil.swift in Sources */,
 				D28B4C361DFAE00C00D10C7E /* AppDelegate.swift in Sources */,
 				D28B4C321DFADFB200D10C7E /* MyDiary.xcdatamodeld in Sources */,
 			);
