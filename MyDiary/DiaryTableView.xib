@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -70,6 +70,7 @@
                 <constraint firstItem="lPh-4S-KhL" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="y5z-gh-4s9"/>
             </constraints>
             <connections>
+                <outlet property="bottomView" destination="lPh-4S-KhL" id="FI4-NM-be0"/>
                 <outlet property="entryNumLabel" destination="zzB-IU-IKq" id="gws-hj-QUX"/>
                 <outlet property="moreBtn" destination="b5r-QZ-QCf" id="Fq9-RU-C1a"/>
                 <outlet property="tableView" destination="1JM-Ic-7OA" id="jnM-lp-UQx"/>

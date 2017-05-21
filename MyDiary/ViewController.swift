@@ -11,13 +11,16 @@ import CoreData
 import LocalAuthentication
 
 
-class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,DiaryTableViewDelegate {
+class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,DiaryTableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
+    @IBOutlet weak var topTitle: UILabel!
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var navigationbar: UINavigationBar!
     @IBOutlet weak var titleContinier: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
+//    let emoji = [["☺︎","☹","♡"],["☼","☁︎","⚡︎","☔︎","❄︎"]]
     var entires: DiaryTableView!
     var canlendar: CanlendarView!
     var diary: DiaryView!
@@ -26,6 +29,8 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,Di
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataUtil.shared.initUtil()  //初始化数据库辅助类
+        initSetting()
         scrollView.delegate = self
         entires = Bundle.main.loadNibNamed("DiaryTableView", owner: nil, options: nil)?.first as! DiaryTableView
         canlendar = Bundle.main.loadNibNamed("CanlendarView", owner: nil, options: nil)?.first as! CanlendarView
@@ -33,6 +38,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,Di
         diary.initView()
         diary.delegate = self
         entires.delegate = self
+        entires.parentView = self.view
         canlendar.initView()
         
         entires.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
@@ -48,6 +54,9 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,Di
         
         segment.addTarget(self, action: #selector(onSegmentValueChanged), for: UIControlEvents.valueChanged)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        
         if Setting.useTouchIDCheck {
             entires.tableView.isHidden = true
             let authenticationContext = LAContext()
@@ -62,17 +71,59 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,Di
                     (success, error) -> Void in
                     if success {
                         self.entires.tableView.isHidden = false
+                        self.entires.tableView.reloadData()
                         print("恭喜，您通过了Touch ID指纹验证！")
                     } else {
-                        print("抱歉，您未能通过Touch ID指纹验证！\n\(error)")
+                        print("抱歉，您未能通过Touch ID指纹验证！\n\(String(describing: error))")
                     }
                 })
             } else {
-                print("抱歉，Touch ID不可以使用！\n\(error)")
+                print("抱歉，Touch ID不可以使用！\n\(String(describing: error))")
+            }
+        }
+//        addTest()
+    }
+    
+    
+//    func addTest() -> Void {
+//        print("addTest")
+//        let context = DataUtil.shared.context
+//        let str = ["2014-01-26 17:40:50","2014-03-10 17:40:50","2014-03-26 17:40:50","2015-01-10 17:40:50","2015-01-13 17:40:50"]
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = DateFormatter.Style.medium
+//        formatter.timeStyle = DateFormatter.Style.short
+//        formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+//        let diary = NSEntityDescription.insertNewObject(forEntityName: "Diary", into: context) as! Diary
+//        let date = formatter.date(from: str[4])
+//        diary.date = date!
+//        diary.text = "No Text"
+//        diary.mood = emoji[0][1]
+//        diary.title = "No Title"
+//        diary.weather = emoji[1][1]
+//        diary.location = "华东交大"
+//        do {
+//            try context.save()
+//            entires.tableView.reloadData()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//    }
+    
+    private func initSetting() {
+        let fetchedObjects = DataUtil.shared.fetchObjects(name: "User")
+        if fetchedObjects.count != 0 {
+            let user = fetchedObjects.first as! User
+            Setting.headImage = UIImage(data: user.headImage! as Data)
+            Setting.name = user.name!
+            Setting.signature = user.signature!
+            Setting.useTouchIDCheck = (user.touchID == 1)
+            if user.theme == "蓝" {
+                Setting.themeColor = Setting.blueColor
+            } else if user.theme == "粉" {
+                Setting.themeColor = Setting.pinkColor
             }
         }
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -84,6 +135,21 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,Di
             canlendar.initViewSize()
             scrollViewInited = true
         }
+        themeInit()
+    }
+    
+    
+    func themeInit() -> Void {
+        if Setting.themeColor == Setting.pinkColor {
+            backgroundImage.image = UIImage(named: "pink")
+        } else if Setting.themeColor == Setting.blueColor {
+            backgroundImage.image = UIImage(named: "blue")
+        }
+        segment.tintColor = Setting.themeColor
+        topTitle.textColor = Setting.themeColor
+        entires.themeInit()
+        canlendar.themeInit()
+        diary.themeInit()
     }
     
     
@@ -114,6 +180,55 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,Di
         }
     }
     
+    func onPickerImage(index:Int) {
+        if index == 0 {
+            //判断设置是否支持图片库
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                //初始化图片控制器
+                let picker = UIImagePickerController()
+                //设置代理
+                picker.delegate = self
+                //指定图片控制器类型
+                picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+                picker.allowsEditing = true
+                //弹出控制器，显示界面
+                self.present(picker, animated: true, completion: {
+                    () -> Void in
+                })
+            }else{
+                print("读取相册错误")
+            }
+        } else {
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                //创建图片控制器
+                let picker = UIImagePickerController()
+                //设置代理
+                picker.delegate = self
+                //设置来源
+                picker.sourceType = UIImagePickerControllerSourceType.camera
+                //允许编辑
+                picker.allowsEditing = true
+                //打开相机
+                self.present(picker, animated: true, completion: {
+                    () -> Void in
+                })
+            }else{
+                print("找不到相机")
+            }
+        }
+    }
+    
+    //选择图片成功后代理
+    func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [String : Any]) {
+        //显示的图片
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        diary.imageView.image = image
+        //图片控制器退出
+        picker.dismiss(animated: true, completion: {
+            () -> Void in
+        })
+    }
+    
     //entries 的回调
     func onMoreClick() {
         let mVC = MoreViewController()
@@ -128,6 +243,40 @@ class ViewController: UIViewController,UIScrollViewDelegate,DiaryViewDelegate,Di
         let pageWidth = Int(scrollView.frame.width)
         scrollView.setContentOffset(CGPoint.init(x: pageWidth * index, y: 0), animated: true)
     }
+    
+    func onImageClick(imageID:Int) {
+        print("onImageClick")
+        let vc = PhotoViewController()
+        vc.imageID = imageID
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func keyboardWillAppear(notification:NSNotification) -> Void {
+        let info = notification.userInfo
+        let duration = info?[UIKeyboardAnimationDurationUserInfoKey] as! CGFloat
+        let keyboardBounds = info?[UIKeyboardFrameEndUserInfoKey] as! CGRect
+        let keyboardHeight = keyboardBounds.size.height
+        let options = (info?[UIKeyboardAnimationCurveUserInfoKey] as! Int) << 16
+        UIView.animate(withDuration: TimeInterval(duration), delay: 0, options: UIViewAnimationOptions(rawValue: UInt(options)), animations: {
+            self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight)
+            self.diary.wrapperView.transform = CGAffineTransform(translationX: 0, y: keyboardHeight-176)
+        }, completion: {
+            (finished) -> Void in
+        })
+    }
+    
+    func keyboardWillDisappear(notification:Notification) -> Void {
+        let info = notification.userInfo
+        let duration = info?[UIKeyboardAnimationDurationUserInfoKey] as! CGFloat
+        let options = (info?[UIKeyboardAnimationCurveUserInfoKey] as! Int) << 16
+        UIView.animate(withDuration: TimeInterval(duration), delay: 0, options: UIViewAnimationOptions(rawValue: UInt(options)), animations: {
+            self.view.transform = CGAffineTransform.identity
+            self.diary.wrapperView.transform = CGAffineTransform.identity
+        }, completion: {
+            (finished) -> Void in
+        })
+    }
+ 
     
 }
 

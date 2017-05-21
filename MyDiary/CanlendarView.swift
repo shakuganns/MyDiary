@@ -27,9 +27,17 @@ class CanlendarView: UIView {
         weekdayLabel.text = DateUtil.weekdayInt2String(day: comps.weekday!, isAbbreviated: false)
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(anim))
         animBtn.addGestureRecognizer(singleTap)
-        canlendarView.weekdayHeaderWeekendTextColor = UIColor(red: 84/255, green: 136/255, blue: 174/255, alpha: 1 )
-        canlendarView.selectedIndicatorColor = UIColor(red: 84/255, green: 136/255, blue: 174/255, alpha: 1 )
+//        canlendarView.weekdayHeaderWeekendTextColor = UIColor(red: 84/255, green: 136/255, blue: 174/255, alpha: 1 )
+//        canlendarView.selectedIndicatorColor = UIColor(red: 84/255, green: 136/255, blue: 174/255, alpha: 1 )
         canlendarView.reload(animated: false)
+    }
+    
+    func themeInit() -> Void {
+        monthLabel.textColor = Setting.themeColor
+        dayLabel.textColor = Setting.themeColor
+        weekdayLabel.textColor = Setting.themeColor
+        canlendarView.weekdayHeaderWeekendTextColor = Setting.themeColor
+        canlendarView.selectedIndicatorColor = Setting.themeColor
     }
     
     func initViewSize() {
@@ -55,7 +63,7 @@ class CanlendarView: UIView {
             })
             UIView.animate(withDuration: 0.5) { () -> Void in
                 //指定旋转角度是180°
-                self.animBtn.transform = self.animBtn.transform.rotated(by: CGFloat(M_PI))
+                self.animBtn.transform = self.animBtn.transform.rotated(by: .pi)
             }
         } else {
             UIView.animate(withDuration: 0.5, animations: {
@@ -71,7 +79,7 @@ class CanlendarView: UIView {
             })
             UIView.animate(withDuration: 0.5) { () -> Void in
                 //指定旋转角度是180°
-                self.animBtn.transform = self.animBtn.transform.rotated(by: CGFloat(M_PI))
+                self.animBtn.transform = self.animBtn.transform.rotated(by: .pi)
             }
         }
         

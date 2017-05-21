@@ -10,16 +10,20 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class DiaryView: UIView,UIPickerViewDataSource,UIPickerViewDelegate,CLLocationManagerDelegate,UIAlertViewDelegate {
+class DiaryView: UIView,UIPickerViewDataSource,UIPickerViewDelegate,CLLocationManagerDelegate,UIAlertViewDelegate,UIActionSheetDelegate {
     
     let emoji = [["☺︎","☹","♡"],["☼","☁︎","⚡︎","☔︎","❄︎"]]
     //定位管理器
     let locationManager:CLLocationManager = CLLocationManager()
 
+    @IBOutlet weak var wrapperView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageBtn: UIImageView!
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var locateBtn: UIImageView!
-    @IBOutlet weak var locationLabel: UILabel!
+//    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mood: UIPickerView!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var text: UITextView!
@@ -27,21 +31,66 @@ class DiaryView: UIView,UIPickerViewDataSource,UIPickerViewDelegate,CLLocationMa
     weak var delegate: DiaryViewDelegate?
     var isLocated = false
     var isLocating = false
+    var location = ""
+    
 
     public func initView() -> Void {
         addBtn.addTarget(self, action: #selector(onAddClick(button:)), for: UIControlEvents.touchDown)
         mood.dataSource = self
         mood.delegate = self
-        text.layer.borderColor = UIColor.init(red: 194/255, green: 194/255, blue: 194/255, alpha: 1).cgColor
         text.layer.borderWidth = 0.5
         text.layer.cornerRadius = 4
         let locateBtnSingleTap = UITapGestureRecognizer(target: self, action: #selector(onLocate))
         locateBtn.addGestureRecognizer(locateBtnSingleTap)
         //设置定位服务管理器代理
         locationManager.delegate = self
-        let locationLabelSingleTap = UITapGestureRecognizer(target: self, action: #selector(changeLocation))
-         locationLabel.addGestureRecognizer(locationLabelSingleTap)
-        
+//        let locationLabelSingleTap = UITapGestureRecognizer(target: self, action: #selector(changeLocation))
+//        locationLabel.addGestureRecognizer(locationLabelSingleTap)
+        let imageBtnSingleTap = UITapGestureRecognizer(target: self, action: #selector(addImage))
+        imageBtn.addGestureRecognizer(imageBtnSingleTap)
+        let imageViewSingleTap = UITapGestureRecognizer(target: self, action: #selector(onImageViewClick))
+        imageView.addGestureRecognizer(imageViewSingleTap)
+    }
+    
+    
+    func onImageViewClick() -> Void {
+        if imageView.image != nil {
+            let alert = UIAlertView(title: "移除图片", message: "要移除这张图片吗？", delegate: nil, cancelButtonTitle: "取消",otherButtonTitles: "确定")
+            alert.delegate = self
+            alert.show()
+        }
+    }
+    
+    func addImage() -> Void {
+        let sheet = UIActionSheet()
+        sheet.addButton(withTitle: "相册")
+        sheet.addButton(withTitle: "相机")
+        sheet.addButton(withTitle: "取消")
+        sheet.title = "请选择图片来源"
+        sheet.cancelButtonIndex = 2
+        sheet.delegate = self
+        sheet.show(in: self)
+    }
+    
+    
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+        if buttonIndex == 0 {
+            if delegate != nil {
+                delegate?.onPickerImage(index: buttonIndex)
+            }
+        } else {
+            if delegate != nil {
+                delegate?.onPickerImage(index: buttonIndex)
+            }
+        }
+    }
+    
+    
+    func themeInit() -> Void {
+        bottomView.backgroundColor = Setting.themeColor
+        moodLabel.textColor = Setting.themeColor
+        weatherLabel.textColor = Setting.themeColor
+        mood.reloadAllComponents()
     }
     
     func onAddClick(button : UIButton) {
@@ -49,25 +98,28 @@ class DiaryView: UIView,UIPickerViewDataSource,UIPickerViewDelegate,CLLocationMa
             let alert = UIAlertView(title: "提示", message: "标题字数不允许大于16", delegate: nil, cancelButtonTitle: "好")
             alert.show()
         } else {
-            var context = NSManagedObjectContext()
-            if #available(iOS 10.0, *) {
-                context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                print("iOS 10")
-            } else {
-                // Fallback on earlier versions
-                let app = UIApplication.shared.delegate as! AppDelegate
-                context = app.managedObjectContext
-                print("iOS 9")
-            }
+            let context = DataUtil.shared.context
             let diary = NSEntityDescription.insertNewObject(forEntityName: "Diary",into: context) as! Diary
             diary.date = Date()
             diary.text = text.text.characters.count == 0 ? "No Text" : text.text
             diary.mood = emoji[0][mood.selectedRow(inComponent: 0)]
             diary.title = title.text?.characters.count == 0 ? "No Title" : title.text
             diary.weather = emoji[1][mood.selectedRow(inComponent: 1)]
-            diary.location = isLocated ? locationLabel.text : "No location"
+            diary.location = isLocated ? location : "No location"
+            if imageView.image != nil {
+                let imageData = UIImagePNGRepresentation(imageView.image!)! as NSData
+                diary.imageID = imageData.hashValue
+                let image = NSEntityDescription.insertNewObject(forEntityName: "DiaryImage",into: context) as! DiaryImage
+                image.id = diary.imageID
+                image.image = imageData
+                print("imageID:\(image.id)")
+            } else {
+                diary.imageID = 0
+            }
             do {
                 try context.save()
+                text.text = ""
+                title.text = ""
             } catch {
                 print(error.localizedDescription)
             }
@@ -82,7 +134,8 @@ class DiaryView: UIView,UIPickerViewDataSource,UIPickerViewDelegate,CLLocationMa
     func onLocate() -> Void {
         if isLocated {
             locateBtn.image = UIImage(named: "location_error")
-            locationLabel.text = ""
+//            locationLabel.text = ""
+            location = ""
             isLocated = false
         } else {
             //设置定位精度
@@ -94,29 +147,41 @@ class DiaryView: UIView,UIPickerViewDataSource,UIPickerViewDelegate,CLLocationMa
             if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse) {
                 //允许使用定位服务的话，开启定位服务更新
                 locateBtn.image = UIImage(named: "location")
-                locationLabel.text = "获取位置中……"
+//                locationLabel.text = "获取位置中……"
                 locationManager.startUpdatingLocation()
                 print("定位开始")
             } else {
                 let alert = UIAlertView(title: "获取位置失败", message: "请尝试在设置-隐私-定位服务中打开定位服务", delegate: nil, cancelButtonTitle: "确定")
                 alert.show()
-                locationLabel.text = "获取位置失败"
+//                locationLabel.text = "获取位置失败"
             }
         }
     }
     
     func changeLocation() -> Void {
-        if isLocated {
+        if !isLocated {
             let alert = UIAlertView(title: "修改位置", message: "", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
             alert.alertViewStyle = UIAlertViewStyle.plainTextInput
-            alert.textField(at: 0)?.text = locationLabel.text
+            alert.textField(at: 0)?.text = location
             alert.show()
         }
     }
     
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
-        if buttonIndex == 1 {
-            locationLabel.text = alertView.textField(at: 0)?.text
+        if alertView.title == "修改位置" {
+            if buttonIndex == 1 {
+                location = (alertView.textField(at: 0)?.text)!
+                locateBtn.image = UIImage(named: "location")
+                isLocated = true
+            } else {
+                self.locateBtn.image = UIImage(named: "location_error")
+                isLocated = false
+                location = ""
+            }
+        } else if alertView.title == "移除图片" {
+            if buttonIndex == 1 {
+                imageView.image = nil
+            }
         }
     }
     
@@ -186,7 +251,7 @@ class DiaryView: UIView,UIPickerViewDataSource,UIPickerViewDelegate,CLLocationMa
             if(error == nil) {
                 let array = placemark! as NSArray
                 let mark = array.firstObject as! CLPlacemark
-                //城市
+//                城市
 //                let city: String = (mark.addressDictionary! as NSDictionary).value(forKey: "City") as! String
                 //国家
 //                let country: NSString = (mark.addressDictionary! as NSDictionary).value(forKey: "Country") as! NSString
@@ -207,13 +272,13 @@ class DiaryView: UIView,UIPickerViewDataSource,UIPickerViewDelegate,CLLocationMa
 //                State = State.replacingOccurrences(of: "省", with: "")
 //                let citynameStr = city.replacingOccurrences(of: "市", with: "")
 //                let location = "\(State)\(city)\(SubLocality)\(FormattedAddressLines)\(Name)"
-                let location = "\(Name)"
-                self.locationLabel.text = location
-                self.locateBtn.image = UIImage(named: "location")
+                self.location = "\(Name)"
+//                self.locationLabel.text = location
+                self.changeLocation()
                 self.isLocated = true
             } else {
                 print(error!.localizedDescription)
-                self.locationLabel.text = "获取位置失败"
+//                self.locationLabel.text = "获取位置失败"
                 self.locateBtn.image = UIImage(named: "location_error")
             }
             self.locationManager.stopUpdatingLocation()

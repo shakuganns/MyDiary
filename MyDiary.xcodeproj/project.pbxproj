@@ -7,8 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D21BEF021ECB335D00F1E2B7 /* PersInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BEF011ECB335D00F1E2B7 /* PersInfoViewController.swift */; };
+		D21BEF041ECB346400F1E2B7 /* PersInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D21BEF031ECB346400F1E2B7 /* PersInfoViewController.xib */; };
+		D21BEF081ECB3B2400F1E2B7 /* PersInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D21BEF071ECB3B2400F1E2B7 /* PersInfoTableViewCell.xib */; };
+		D27FE7F31ECDA343002A4334 /* DiaryImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27FE7F11ECDA343002A4334 /* DiaryImage+CoreDataClass.swift */; };
+		D27FE7F41ECDA343002A4334 /* DiaryImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27FE7F21ECDA343002A4334 /* DiaryImage+CoreDataProperties.swift */; };
+		D27FE7F71ECDBFF5002A4334 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27FE7F61ECDBFF5002A4334 /* PhotoViewController.xib */; };
+		D27FE7F91ECDC01E002A4334 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27FE7F81ECDC01E002A4334 /* PhotoViewController.swift */; };
+		D27FE7FB1ECDC427002A4334 /* AlertViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27FE7FA1ECDC427002A4334 /* AlertViewDelegate.swift */; };
+		D27FE7FD1ECDEF5F002A4334 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27FE7FC1ECDEF5F002A4334 /* SearchViewController.swift */; };
+		D27FE7FF1ECDEFBE002A4334 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27FE7FE1ECDEFBE002A4334 /* SearchViewController.xib */; };
+		D27FE8051ECE0E73002A4334 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27FE8041ECE0E73002A4334 /* NoteViewController.swift */; };
+		D27FE8071ECE0E9D002A4334 /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D27FE8061ECE0E9D002A4334 /* NoteViewController.xib */; };
+		D27FE80A1ECE1105002A4334 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27FE8081ECE1105002A4334 /* Note+CoreDataClass.swift */; };
+		D27FE80B1ECE1105002A4334 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27FE8091ECE1105002A4334 /* Note+CoreDataProperties.swift */; };
+		D28896511ECC90460042A9A9 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288964F1ECC90460042A9A9 /* User+CoreDataClass.swift */; };
+		D28896521ECC90460042A9A9 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28896501ECC90460042A9A9 /* User+CoreDataProperties.swift */; };
+		D28896561ECCA35B0042A9A9 /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28896551ECCA35B0042A9A9 /* DataUtil.swift */; };
 		D28B4C321DFADFB200D10C7E /* MyDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D28B4C301DFADFB200D10C7E /* MyDiary.xcdatamodeld */; };
-		D28B4C341DFADFCD00D10C7E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D28B4C331DFADFCD00D10C7E /* Info.plist */; };
 		D28B4C361DFAE00C00D10C7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B4C351DFAE00C00D10C7E /* AppDelegate.swift */; };
 		D28B4C3C1DFAE27300D10C7E /* qingyuan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D28B4C3B1DFAE27300D10C7E /* qingyuan.ttf */; };
 		D2A82CB31DFFF1A4006E8E25 /* DiaryTableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2A82CB21DFFF1A4006E8E25 /* DiaryTableViewSectionHeader.xib */; };
@@ -45,6 +61,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D21BEF011ECB335D00F1E2B7 /* PersInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersInfoViewController.swift; path = MyDiary/PersInfoViewController.swift; sourceTree = "<group>"; };
+		D21BEF031ECB346400F1E2B7 /* PersInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersInfoViewController.xib; path = MyDiary/PersInfoViewController.xib; sourceTree = "<group>"; };
+		D21BEF071ECB3B2400F1E2B7 /* PersInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersInfoTableViewCell.xib; path = MyDiary/PersInfoTableViewCell.xib; sourceTree = "<group>"; };
+		D27FE7F11ECDA343002A4334 /* DiaryImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DiaryImage+CoreDataClass.swift"; path = "MyDiary/DiaryImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D27FE7F21ECDA343002A4334 /* DiaryImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DiaryImage+CoreDataProperties.swift"; path = "MyDiary/DiaryImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D27FE7F61ECDBFF5002A4334 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoViewController.xib; path = MyDiary/PhotoViewController.xib; sourceTree = "<group>"; };
+		D27FE7F81ECDC01E002A4334 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		D27FE7FA1ECDC427002A4334 /* AlertViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewDelegate.swift; sourceTree = "<group>"; };
+		D27FE7FC1ECDEF5F002A4334 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = MyDiary/SearchViewController.swift; sourceTree = "<group>"; };
+		D27FE7FE1ECDEFBE002A4334 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchViewController.xib; path = MyDiary/SearchViewController.xib; sourceTree = "<group>"; };
+		D27FE8041ECE0E73002A4334 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteViewController.swift; path = MyDiary/NoteViewController.swift; sourceTree = "<group>"; };
+		D27FE8061ECE0E9D002A4334 /* NoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
+		D27FE8081ECE1105002A4334 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataClass.swift"; path = "MyDiary/Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D27FE8091ECE1105002A4334 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "MyDiary/Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D288964F1ECC90460042A9A9 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "MyDiary/User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D28896501ECC90460042A9A9 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "MyDiary/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D28896551ECCA35B0042A9A9 /* DataUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataUtil.swift; path = MyDiary/DataUtil.swift; sourceTree = "<group>"; };
 		D28B4C311DFADFB200D10C7E /* MyDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDiary.xcdatamodel; sourceTree = "<group>"; };
 		D28B4C331DFADFCD00D10C7E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyDiary/Info.plist; sourceTree = "<group>"; };
 		D28B4C351DFAE00C00D10C7E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MyDiary/AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +135,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D27FE7F51ECDA34F002A4334 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D27FE8081ECE1105002A4334 /* Note+CoreDataClass.swift */,
+				D27FE8091ECE1105002A4334 /* Note+CoreDataProperties.swift */,
+				D27FE7F11ECDA343002A4334 /* DiaryImage+CoreDataClass.swift */,
+				D27FE7F21ECDA343002A4334 /* DiaryImage+CoreDataProperties.swift */,
+				D288964F1ECC90460042A9A9 /* User+CoreDataClass.swift */,
+				D28896501ECC90460042A9A9 /* User+CoreDataProperties.swift */,
+				D2CF7ED11DFADCA700B620DF /* Diary+CoreDataClass.swift */,
+				D2CF7ED21DFADCA700B620DF /* Diary+CoreDataProperties.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		D28B4C2F1DFADF6500D10C7E /* MyDiary */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +161,10 @@
 				D2B540F31E03E09400F1FCDA /* MyNavigationController.swift */,
 				D2CF7EDB1DFADCD500B620DF /* ViewController.swift */,
 				D2B540EF1E03DAF200F1FCDA /* MoreViewController.swift */,
+				D21BEF011ECB335D00F1E2B7 /* PersInfoViewController.swift */,
+				D27FE7F81ECDC01E002A4334 /* PhotoViewController.swift */,
+				D27FE7FC1ECDEF5F002A4334 /* SearchViewController.swift */,
+				D27FE8041ECE0E73002A4334 /* NoteViewController.swift */,
 				D2CF7ED61DFADCD500B620DF /* DiaryTableView.swift */,
 				D2CF7ED71DFADCD500B620DF /* DiaryTableViewCell.swift */,
 				D2CBE4771DFEDACA00719B85 /* CanlendarView.swift */,
@@ -131,6 +183,11 @@
 			children = (
 				D2B540F01E03DAF200F1FCDA /* MoreViewController.xib */,
 				D2B540F51E03F3CB00F1FCDA /* MoreTableViewCell.xib */,
+				D21BEF031ECB346400F1E2B7 /* PersInfoViewController.xib */,
+				D21BEF071ECB3B2400F1E2B7 /* PersInfoTableViewCell.xib */,
+				D27FE7F61ECDBFF5002A4334 /* PhotoViewController.xib */,
+				D27FE7FE1ECDEFBE002A4334 /* SearchViewController.xib */,
+				D27FE8061ECE0E9D002A4334 /* NoteViewController.xib */,
 				D28B4C381DFAE05D00D10C7E /* Entries */,
 				D2CF7EE41DFADD6A00B620DF /* CanlendarView.xib */,
 				D2CF7EE71DFADD6A00B620DF /* DiaryView.xib */,
@@ -156,6 +213,7 @@
 			children = (
 				D2CF7ED91DFADCD500B620DF /* DiaryViewDelegate.swift */,
 				D2B540EC1E03D91800F1FCDA /* DiaryTableViewDelegate.swift */,
+				D27FE7FA1ECDC427002A4334 /* AlertViewDelegate.swift */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -163,9 +221,8 @@
 		D2BD2E201DF6A1BD005E18E8 = {
 			isa = PBXGroup;
 			children = (
+				D27FE7F51ECDA34F002A4334 /* Model */,
 				D28B4C3B1DFAE27300D10C7E /* qingyuan.ttf */,
-				D2CF7ED11DFADCA700B620DF /* Diary+CoreDataClass.swift */,
-				D2CF7ED21DFADCA700B620DF /* Diary+CoreDataProperties.swift */,
 				D28B4C2F1DFADF6500D10C7E /* MyDiary */,
 				D2BD2E2A1DF6A1BE005E18E8 /* Products */,
 			);
@@ -204,6 +261,7 @@
 			children = (
 				D2EC4DA61DFC5ECE0005AE77 /* DateUtil.swift */,
 				D2B540EA1E03A63400F1FCDA /* Setting.swift */,
+				D28896551ECCA35B0042A9A9 /* DataUtil.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -235,7 +293,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = shakugan;
 				TargetAttributes = {
 					D2BD2E281DF6A1BE005E18E8 = {
@@ -269,18 +327,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D21BEF041ECB346400F1E2B7 /* PersInfoViewController.xib in Resources */,
 				D2EC4DA21DFC028F0005AE77 /* AlertView.xib in Resources */,
 				D2B540F21E03DAF200F1FCDA /* MoreViewController.xib in Resources */,
 				D28B4C3C1DFAE27300D10C7E /* qingyuan.ttf in Resources */,
 				D2CF7EF31DFADDFF00B620DF /* LaunchScreen.storyboard in Resources */,
+				D21BEF081ECB3B2400F1E2B7 /* PersInfoTableViewCell.xib in Resources */,
+				D27FE7F71ECDBFF5002A4334 /* PhotoViewController.xib in Resources */,
 				D2CF7EF41DFADDFF00B620DF /* Main.storyboard in Resources */,
-				D28B4C341DFADFCD00D10C7E /* Info.plist in Resources */,
 				D2CF7EE91DFADD6A00B620DF /* Assets.xcassets in Resources */,
 				D2B540F61E03F3CB00F1FCDA /* MoreTableViewCell.xib in Resources */,
 				D2A82CB31DFFF1A4006E8E25 /* DiaryTableViewSectionHeader.xib in Resources */,
 				D2CF7EEA1DFADD6A00B620DF /* CanlendarView.xib in Resources */,
 				D2CF7EEB1DFADD6A00B620DF /* DiaryTableView.xib in Resources */,
+				D27FE8071ECE0E9D002A4334 /* NoteViewController.xib in Resources */,
 				D2CF7EEC1DFADD6A00B620DF /* DiaryTableViewCell.xib in Resources */,
+				D27FE7FF1ECDEFBE002A4334 /* SearchViewController.xib in Resources */,
 				D2CF7EED1DFADD6A00B620DF /* DiaryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,22 +354,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D27FE7F91ECDC01E002A4334 /* PhotoViewController.swift in Sources */,
 				D2B540F11E03DAF200F1FCDA /* MoreViewController.swift in Sources */,
+				D27FE7F41ECDA343002A4334 /* DiaryImage+CoreDataProperties.swift in Sources */,
 				D2C5F6D81E02E41700E591E7 /* DAYIndicatorView.m in Sources */,
 				D2CF7EDD1DFADCD500B620DF /* DiaryTableView.swift in Sources */,
 				D2CF7EDE1DFADCD500B620DF /* DiaryTableViewCell.swift in Sources */,
+				D27FE7FB1ECDC427002A4334 /* AlertViewDelegate.swift in Sources */,
+				D27FE7FD1ECDEF5F002A4334 /* SearchViewController.swift in Sources */,
+				D27FE8051ECE0E73002A4334 /* NoteViewController.swift in Sources */,
+				D27FE7F31ECDA343002A4334 /* DiaryImage+CoreDataClass.swift in Sources */,
 				D2CF7EDF1DFADCD500B620DF /* DiaryView.swift in Sources */,
 				D2CF7EE01DFADCD500B620DF /* DiaryViewDelegate.swift in Sources */,
 				D2EC4D9C1DFBEA880005AE77 /* CustomIOSAlertView.m in Sources */,
+				D28896561ECCA35B0042A9A9 /* DataUtil.swift in Sources */,
 				D2EC4DA01DFBF5C40005AE77 /* AlertView.swift in Sources */,
+				D28896521ECC90460042A9A9 /* User+CoreDataProperties.swift in Sources */,
 				D2C5F6D91E02E41700E591E7 /* DAYNavigationBar.m in Sources */,
+				D21BEF021ECB335D00F1E2B7 /* PersInfoViewController.swift in Sources */,
 				D2CF7EE21DFADCD500B620DF /* ViewController.swift in Sources */,
 				D2B540EB1E03A63400F1FCDA /* Setting.swift in Sources */,
 				D2B540F41E03E09400F1FCDA /* MyNavigationController.swift in Sources */,
 				D2CF7ED31DFADCA700B620DF /* Diary+CoreDataClass.swift in Sources */,
+				D28896511ECC90460042A9A9 /* User+CoreDataClass.swift in Sources */,
 				D2C5F6D71E02E41700E591E7 /* DAYComponentView.m in Sources */,
+				D27FE80A1ECE1105002A4334 /* Note+CoreDataClass.swift in Sources */,
 				D2C5F6CE1E02E35500E591E7 /* DAYCalendarView.m in Sources */,
 				D2CBE4781DFEDACA00719B85 /* CanlendarView.swift in Sources */,
+				D27FE80B1ECE1105002A4334 /* Note+CoreDataProperties.swift in Sources */,
 				D2C5F6DA1E02E41700E591E7 /* DAYUtils.m in Sources */,
 				D2CF7ED41DFADCA700B620DF /* Diary+CoreDataProperties.swift in Sources */,
 				D2B540ED1E03D91800F1FCDA /* DiaryTableViewDelegate.swift in Sources */,
@@ -357,6 +431,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -406,6 +481,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

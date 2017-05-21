@@ -8,25 +8,27 @@
 
 import UIKit
 
-class MoreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
+class MoreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+
+    @IBOutlet weak var headImage: UIImageView!
+    @IBOutlet weak var signText: UILabel!
+    @IBOutlet weak var nameText: UILabel!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var searchViewCon: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     weak var textField:UITextField!
-    let icons = ["phone_book","diary","notice"]
-    let texts = ["紧急联系人","日记本","绝对禁止"]
+    let icons = ["notice","diary","notice"]
+    let texts = ["便签1","日记本","便签2"]
     var count = ["","",""]
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         tableView.tableFooterView = UIView()
         let textField = searchBar.value(forKey: "_searchField") as! UITextField
         self.textField = textField
-        textField.backgroundColor = Setting.themeColor
-        textField.textColor = UIColor.white
-        textField.tintColor = UIColor.white
         let barBackground = searchBar.value(forKey: "_background") as! UIView
         barBackground.removeFromSuperview()
         let image = UIImage(named: "magnifier")
@@ -36,6 +38,34 @@ class MoreViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         textField.leftView = imageView
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        
+        topView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTopClick)))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        themeInit()
+        signText.text = Setting.signature
+        nameText.text = Setting.name
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let vc = SearchViewController()
+        vc.keyword = searchBar.text!
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func themeInit() -> Void {
+        headImage.image = Setting.headImage
+        textField.backgroundColor = Setting.themeColor
+        textField.textColor = UIColor.white
+        textField.tintColor = UIColor.white
+        topView.backgroundColor = Setting.themeColor
+    }
+    
+    
+    func onTopClick() -> Void {
+        self.navigationController?.pushViewController(PersInfoViewController(), animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -44,7 +74,7 @@ class MoreViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        textField.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
     func keyboardWillAppear(notification:NSNotification) -> Void {
@@ -99,6 +129,20 @@ class MoreViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         image.image = UIImage(named: icons[indexPath.row])
         count.text = self.count[indexPath.row]
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let vc = NoteViewController()
+            vc.id = indexPath.row
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if indexPath.row == 1 {
+            self.navigationController?.popViewController(animated: true)
+        } else if indexPath.row == 2 {
+            let vc = NoteViewController()
+            vc.id = indexPath.row
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
 }

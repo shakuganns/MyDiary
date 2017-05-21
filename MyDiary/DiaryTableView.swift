@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
+class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate,AlertViewDelegate {
     
+    @IBOutlet weak var bottomView: UIView!
     var diaryArray = Array<Array<Diary>>()
     var diaryCount = Int()
     var delegate: DiaryTableViewDelegate?
+    weak var parentView : UIView?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var entryNumLabel: UILabel!
@@ -23,6 +25,11 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
         entryNumLabel.text = "\(diaryCount) entry"
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(pushTo))
         moreBtn.addGestureRecognizer(singleTap)
+    }
+    
+    func themeInit() -> Void {
+        bottomView.backgroundColor = Setting.themeColor
+        tableView.reloadData()
     }
     
     func pushTo() -> Void {
@@ -59,10 +66,12 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        print("section:\(diaryArray.count)")
         return diaryArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("num:\(diaryArray[section].count)")
         return diaryArray[section].count
     }
     
@@ -83,6 +92,15 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
         let text = cell?.viewWithTag(5) as! UILabel
         let weather = cell?.viewWithTag(6) as! UILabel
         let mood = cell?.viewWithTag(7) as! UILabel
+        let mail = cell?.viewWithTag(8) as! UILabel
+        date.textColor = Setting.themeColor
+        week.textColor = Setting.themeColor
+        time.textColor = Setting.themeColor
+        title.textColor = Setting.themeColor
+//        text.textColor = Setting.themeColor
+        weather.textColor = Setting.themeColor
+        mood.textColor = Setting.themeColor
+        mail.textColor = Setting.themeColor
         let comps = DateUtil.formatDate(date: diary.date)
         date.text = "\(comps.day!)"
         week.text = DateUtil.weekdayInt2String(day: comps.weekday!,isAbbreviated: true)
@@ -98,17 +116,21 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
         let diary = diaryArray[indexPath.section][indexPath.row]
         let comps = DateUtil.formatDate(date: diary.date)
         let alert = CustomIOSAlertView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        alert.parentView = parentView
         let customView = Bundle.main.loadNibNamed("AlertView", owner: nil, options: nil)?.first as! AlertView
-        customView.initTapGesture(target: alert)
+        customView.initAlert(target: alert,imageID: diary.imageID)
+        customView.delegate = self
         customView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width*0.94, height: UIScreen.main.bounds.height>600 ? 600 : UIScreen.main.bounds.height*0.9)
         customView.setTime(month: comps.month!, day: comps.day!, hour: comps.hour!,minute: comps.minute!, weekday
             : comps.weekday!)
         customView.setTitleText(title: diary.title!,text: diary.text!)
+        customView.titleLabel.textColor = Setting.themeColor
         customView.setWeather(weather: diary.weather!)
         customView.setLocation(location: diary.location == nil ? "No location" : diary.location!)
         customView.lookingDiarySection = indexPath.section
         customView.lookingDiaryRow = indexPath.row
-        customView.diaryTableView = self
+//        customView.tableView = tableView
+//        customView.diaryArray = diaryArray
         alert.containerView = customView
         alert.show()
         customView.addCons()
@@ -116,36 +138,12 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
         alert.dialogView.layer.borderWidth = 0
         alert.dialogView.clipsToBounds = true
         alert.dialogView.layer.cornerRadius = 24
+        alert.dialogView.viewWithTag(101)?.backgroundColor = Setting.themeColor
+        alert.dialogView.viewWithTag(102)?.backgroundColor = Setting.themeColor
     }
     
     public func loadDiary() -> Void {
-        var context = NSManagedObjectContext()
-        if #available(iOS 10.0, *) {
-            context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            print("iOS 10")
-        } else {
-            // Fallback on earlier versions
-            let app = UIApplication.shared.delegate as! AppDelegate
-            context = app.managedObjectContext
-            print("iOS 9")
-        }
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
-//        fetchRequest.fetchLimit = 3 //限定查询结果的数量
-//        fetchRequest.fetchOffset = 0 //查询的偏移量
-        let entity:NSEntityDescription? = NSEntityDescription.entity(forEntityName: "Diary",in: context)
-        fetchRequest.entity = entity
-        //设置查询条件
-        //            let predicate = NSPredicate(format:nil)
-        //            fetchRequest.predicate = predicate
-        
-        var fetchedObjects = [Any]()
-        //查询操作
-        do {
-            try fetchedObjects = context.fetch(fetchRequest)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
+        let fetchedObjects = DataUtil.shared.fetchObjects(name: "Diary")
         if fetchedObjects.count == 0 {
             return
         }
@@ -163,14 +161,15 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
             arrayEndIndex = index
             if yearMonth != yearMonthTemp {
                 var array = Array<Diary>()
-                for i in (arrayEndIndex...arrayBeginIndex).reversed() {
+                for i in (arrayEndIndex+1...arrayBeginIndex).reversed() {
                     array.append(object[i])
                 }
                 diaryArray.append(array)
                 arraySection += 1
                 yearMonth = yearMonthTemp
-                arrayBeginIndex = arrayEndIndex - 1
-            } else if index == fetchedObjects.count-1 {
+                arrayBeginIndex = arrayEndIndex
+            }
+            if index == 0 {
                 var array = Array<Diary>()
                 for i in (0...arrayBeginIndex).reversed() {
                     array.append(object[i])
@@ -178,8 +177,8 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
                 diaryArray.append(array)
             }
         }
-        print("diaryCount:\(diaryCount)")
-        print("section:\(diaryArray.count)")
+//        print("diaryCount:\(diaryCount)")
+//        print("section:\(diaryArray.count)")
     }
 
     
@@ -215,6 +214,25 @@ class DiaryTableView: UIView,UITableViewDataSource,UITableViewDelegate {
             diaryCount -= 1
         }
         entryNumLabel.text = "\(diaryCount) entry"
+    }
+    
+    func onImageClick(imageID: Int) {
+        if delegate != nil {
+            delegate?.onImageClick(imageID: imageID)
+        }
+    }
+    
+    func onDelete(lookingDiarySection:Int,lookingDiaryRow:Int) {
+        let context = DataUtil.shared.context
+        context.delete(diaryArray[lookingDiarySection][lookingDiaryRow])
+        diaryArray[lookingDiarySection].remove(at: lookingDiaryRow)
+        let indexPath = IndexPath(row: lookingDiaryRow, section: lookingDiarySection)
+        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        if diaryArray[lookingDiarySection].count == 0 {
+            diaryArray.remove(at: lookingDiarySection)
+            tableView.deleteSections(IndexSet.init(integer: indexPath.section), with: UITableViewRowAnimation.fade)
+        }
+        updateCountLabel(isPlus: false)
     }
     
 }

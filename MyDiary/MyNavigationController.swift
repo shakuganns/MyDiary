@@ -15,7 +15,7 @@ class MyNavigationController: UINavigationController,UIGestureRecognizerDelegate
         super.viewDidLoad()
         // 获取系统自带滑动手势的target对象
         let target = self.interactivePopGestureRecognizer?.delegate;
-        
+
         // 创建全屏滑动手势，调用系统自带滑动手势的target的action方法
         let pan = UIPanGestureRecognizer(target: target, action: NSSelectorFromString("handleNavigationTransition:"))
         

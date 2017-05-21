@@ -11,6 +11,7 @@ import CoreData
 
 class AlertView: UIView,UIAlertViewDelegate {
 
+    @IBOutlet weak var imageBtn: UIImageView!
     @IBOutlet weak var closeBtn: UIImageView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
@@ -21,14 +22,18 @@ class AlertView: UIView,UIAlertViewDelegate {
     @IBOutlet weak var deleteBtn: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     var titleLabel: UILabel!
+    var delegate : AlertViewDelegate?
     
     weak var dialogView: CustomIOSAlertView!
-    weak var diaryTableView: DiaryTableView!
+//    weak var tableView: UITableView!
+//    var diaryArray = Array<Array<Diary>>()
     var lookingDiarySection = 0
     var lookingDiaryRow = 0
+    var imageID = Int()
     
     
-    public func initTapGesture(target:CustomIOSAlertView) -> Void {
+    public func initAlert(target:CustomIOSAlertView,imageID:Int) -> Void {
+        self.imageID = imageID
         dialogView = target
         let singleTapClose = UITapGestureRecognizer.init(target: self, action: #selector(onCloseClick))
         closeBtn.addGestureRecognizer(singleTapClose)
@@ -41,8 +46,15 @@ class AlertView: UIView,UIAlertViewDelegate {
         titleLabel.textAlignment = NSTextAlignment.center
         titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 20)
         textView.addSubview(titleLabel)
+        if imageID != 0 {
+            let singleTapImage = UITapGestureRecognizer.init(target: self, action: #selector(onImageClick))
+            imageBtn.addGestureRecognizer(singleTapImage)
+        } else {
+            imageBtn.removeFromSuperview()
+        }
     }
     
+    //添加约束
     func addCons() -> Void {
         let centerXCons = NSLayoutConstraint(item: titleLabel, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: textView, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0)
         let topCons = NSLayoutConstraint(item: titleLabel, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: textView, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 16)
@@ -50,6 +62,13 @@ class AlertView: UIView,UIAlertViewDelegate {
         textView.addConstraint(topCons)
         OperationQueue.main.addOperation { 
             self.textView.setContentOffset(CGPoint(x:0,y:0), animated: false)
+        }
+    }
+    
+    func onImageClick() -> Void {
+        print("imageClick")
+        if delegate != nil {
+            delegate?.onImageClick(imageID: imageID)
         }
     }
     
@@ -97,28 +116,21 @@ class AlertView: UIView,UIAlertViewDelegate {
     
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         if buttonIndex == 1 {
-            var context = NSManagedObjectContext()
-            if #available(iOS 10.0, *) {
-                context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                print("iOS 10")
-            } else {
-                // Fallback on earlier versions
-                let app = UIApplication.shared.delegate as! AppDelegate
-                context = app.managedObjectContext
-                print("iOS 9")
+//            let context = DataUtil.shared.context
+////            let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+////            let entity:NSEntityDescription? = NSEntityDescription.entity(forEntityName: "Diary",in: context)
+////            fetchRequest.entity = entity
+//            context.delete(diaryArray[lookingDiarySection][lookingDiaryRow])
+//            diaryArray[lookingDiarySection].remove(at: lookingDiaryRow)
+//            let indexPath = IndexPath(row: lookingDiaryRow, section: lookingDiarySection)
+//            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//            if diaryArray[lookingDiarySection].count == 0 {
+//                diaryArray.remove(at: lookingDiarySection)
+//                tableView.deleteSections(IndexSet.init(integer: indexPath.section), with: UITableViewRowAnimation.fade)
+//            }
+            if delegate != nil {
+                delegate?.onDelete(lookingDiarySection: lookingDiarySection,lookingDiaryRow: lookingDiaryRow)
             }
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
-            let entity:NSEntityDescription? = NSEntityDescription.entity(forEntityName: "Diary",in: context)
-            fetchRequest.entity = entity
-            context.delete(diaryTableView.diaryArray[lookingDiarySection][lookingDiaryRow])
-            diaryTableView.diaryArray[lookingDiarySection].remove(at: lookingDiaryRow)
-            let indexPath = IndexPath(row: lookingDiaryRow, section: lookingDiarySection)
-            diaryTableView.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-            if diaryTableView.diaryArray[lookingDiarySection].count == 0 {
-                diaryTableView.diaryArray.remove(at: lookingDiarySection)
-                diaryTableView.tableView.deleteSections(IndexSet.init(integer: indexPath.section), with: UITableViewRowAnimation.fade)
-            }
-            diaryTableView.updateCountLabel(isPlus: false)
             dialogView.close()
         }
     }

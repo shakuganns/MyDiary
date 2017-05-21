@@ -10,4 +10,6 @@ import Foundation
 
 public protocol DiaryTableViewDelegate:NSObjectProtocol {
     func onMoreClick() -> Void
+    
+    func onImageClick(imageID:Int) -> Void
 }

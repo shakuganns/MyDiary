@@ -21,6 +21,7 @@ extension Diary {
     @NSManaged public var title: String?
     @NSManaged public var weather: String?
     @NSManaged public var location: String?
+    @NSManaged public var imageID: Int
     @NSManaged public var date: Date
 
 }

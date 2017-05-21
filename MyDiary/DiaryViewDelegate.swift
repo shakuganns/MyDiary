@@ -10,4 +10,6 @@ import Foundation
 
 public protocol DiaryViewDelegate:NSObjectProtocol {
     func onAddClick(button:UIButton,diary:Diary) -> Void
+    
+    func onPickerImage(index:Int) -> Void
 }

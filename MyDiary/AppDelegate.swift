@@ -103,7 +103,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        
     }
     
     lazy var applicationDocumentsDirectory: NSURL = {

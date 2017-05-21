@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FcG-my-5UO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FcG-my-5UO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5f4d8701a18b87d6f545c658070828381e30fdc0" translatesAutoresizingMaskIntoConstraints="NO" id="E4M-f0-l2S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pink" translatesAutoresizingMaskIntoConstraints="NO" id="E4M-f0-l2S">
                                 <rect key="frame" x="0.0" y="134" width="375" height="533"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPc-XH-jCK">
@@ -88,10 +88,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="azL-SC-oYC"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="E4M-f0-l2S" id="hzx-ge-jQo"/>
                         <outlet property="navigationbar" destination="vrQ-TT-PfP" id="qaV-3j-hbg"/>
                         <outlet property="scrollView" destination="WPc-XH-jCK" id="72L-0d-TbP"/>
                         <outlet property="segment" destination="4oZ-Ji-mri" id="8CM-Df-foB"/>
                         <outlet property="titleContinier" destination="VhO-AZ-0ec" id="5m8-04-tTZ"/>
+                        <outlet property="topTitle" destination="YaF-pp-IF2" id="TN1-Ef-8zG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -103,7 +105,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FcG-my-5UO" customClass="MyNavigationController" customModule="MyDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="otX-LR-Vlt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="otX-LR-Vlt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -119,6 +121,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="5f4d8701a18b87d6f545c658070828381e30fdc0" width="1600" height="1200"/>
+        <image name="pink" width="1024" height="1020"/>
     </resources>
 </document>
